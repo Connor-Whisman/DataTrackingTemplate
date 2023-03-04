@@ -1,5 +1,5 @@
 # Data Tracking Template
-- Generic app template with multiple use cases. Main purpose for tracking information over large periods of time.
+- Generic app template for AngularJs with multiple use cases. Main purpose for tracking information over large periods of time.
 
 # Goal:
 - Build a general app template that can be used in many different ways. Some other topics I've come up with include:
