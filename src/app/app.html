@@ -19,14 +19,9 @@
             <br>
         </div>
 
-        <div ng-controller="httpCtrl">
-            <div ng-repeat="data in response.buckets">
-                {{data.name}}
-                {{data.object.date}}
-                {{data.object.description}}
-                {{data.object.records[0]}}
-            </div>
-        </div>
+        
+
+        <div buckets></div>
 
 
 
@@ -35,7 +30,9 @@
         <script src="//code.angularjs.org/1.8.0/angular-messages.min.js"></script>
         <script src="//code.angularjs.org/1.8.0/angular-route.js"></script>
         <script src="app.js"></script>
-        <script src="appCtrl.js"></script>
-        <script src="http/httpCtrl.js"></script>
+        <script src="app.ctrl.js"></script>
+        <script src="directives/directives.js"></script>
+        <script src="http/http.svc.js"></script>
+        <script src="buckets/bucket.ctrl.js"></script>
     </body>
 </html>

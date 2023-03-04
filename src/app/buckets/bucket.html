@@ -1,0 +1,25 @@
+<h4>
+    BUCKETS
+</h4>
+
+<div ng-controller="bucketCtrl">
+    <ul>
+        <li ng-repeat="data in buckets">
+            {{data.name}}
+            <ul>
+                <li>{{data.object.date}}</li>
+                <li>{{data.object.description}}</li>
+                <li>
+                    Records:
+                    <ul ng-repeat="record in data.object.records">
+                        <li>{{record.name}}</li>
+                        <li>{{record.date}}</li>
+                        <li>{{record.data1}}</li>
+                        <li>{{record.data2}}</li>
+                        <li>{{record.data3}}</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
