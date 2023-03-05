@@ -1,5 +1,5 @@
-app.directive('buckets', function() {
+app.directive('container', function() {
     return {
-      templateUrl: 'buckets/bucket.html',
+      templateUrl: 'container/container.html',
     };
 });

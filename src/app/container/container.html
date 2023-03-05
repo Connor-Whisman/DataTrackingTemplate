@@ -1,0 +1,23 @@
+<h4>
+    CONTAINERS
+</h4>
+
+<div ng-controller="containerCtrl">
+    <ul>
+        <div ng-repeat="data in containers" class="container">
+            <h3 class="container-title">{{data.name}}</h3>
+            <div class="container-item">
+                <h4>{{data.item.name}}</h4>
+                <ul>
+                    <li ng-repeat="record in data.item.records">
+                        <div class="item-record">
+                            <h4>{{record.name}}</h4>
+                            <p class="record-date">{{record.date}}</p>
+                            <div ng-click="showData()">Expand data..</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ul>
+</div>

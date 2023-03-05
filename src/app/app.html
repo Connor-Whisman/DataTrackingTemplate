@@ -3,6 +3,8 @@
     <head>
         <title>Learn Angular</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="app.css">
+        <link rel="stylesheet" href="container/container.css">
     </head>
     <body>
 
@@ -11,17 +13,17 @@
             <form name="noteForm">
                 <input type="text" ng-model="interpolationStr" name="title" required minlength="2"/>
                 
-                <div ng-messages="noteForm.title.$error">
+                <!-- <div ng-messages="noteForm.title.$error">
                     <div ng-message="required">This field is required</div>
                     <div ng-message="minlength">The value you entered is too short</div>
-                </div>
+                </div> -->
             </form>
             <br>
         </div>
 
         
 
-        <div buckets></div>
+        <div container></div>
 
 
 
@@ -33,6 +35,6 @@
         <script src="app.ctrl.js"></script>
         <script src="directives/directives.js"></script>
         <script src="http/http.svc.js"></script>
-        <script src="buckets/bucket.ctrl.js"></script>
+        <script src="container/container.ctrl.js"></script>
     </body>
 </html>

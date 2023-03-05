@@ -4,10 +4,10 @@ app.service('httpSvc', [
     function($http, $rootScope) {
         const URL   = 'http://localhost:8080/';
 
-        this.getBuckets = function() {
+        this.getContainers = function() {
             $http.get(URL)
             .then(function(response) {
-                    $rootScope.buckets = response.data.buckets;
+                    $rootScope.containers = response.data.containers;
                 }, function(error) {
                     $log.error(`ERROR GETTING DATA: ${error}`);
                 }
