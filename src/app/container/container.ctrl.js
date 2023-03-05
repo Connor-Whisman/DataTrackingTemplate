@@ -1,7 +1,8 @@
 app.controller('containerCtrl', [
-    '$scope',
+    '$rootScope',
     'httpSvc',
-    function($scope, httpSvc) {
-        httpSvc.getContainers();
+    function($rootScope, httpSvc) {
+        httpSvc.getSavedData();
+        console.log($rootScope.databaseObj);
     }
 ]);
