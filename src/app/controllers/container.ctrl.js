@@ -3,8 +3,7 @@ app.controller('containerCtrl', [
     'httpSvc',
     function($rootScope, httpSvc) {
         // $rootScope.test = httpSvc.getSavedData();
-        
-        // $rootScope.databaseObj = httpSvc.databaseObj;
+        $rootScope.obj = httpSvc;
         console.log(httpSvc);
     }
 ]);
