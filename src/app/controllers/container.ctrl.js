@@ -1,9 +1,11 @@
 app.controller('containerCtrl', [
-    '$rootScope',
-    'httpSvc',
-    function($rootScope, httpSvc) {
-        // $rootScope.test = httpSvc.getSavedData();
-        $rootScope.obj = httpSvc;
-        console.log(httpSvc);
+    '$log',
+    '$scope',
+    'databaseSvc',
+    function($log, $scope, databaseSvc) {
+        $scope.length = 1;
+        $scope.database = databaseSvc;
+
+        $log.info('Database Response: ', $scope.database);
     }
 ]);

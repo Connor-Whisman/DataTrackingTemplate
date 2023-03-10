@@ -9,26 +9,19 @@
     <body>
 
         <div ng-controller="appCtrl">
-            <p>{{ interpolationStr }}</p>
+            <p>{{ title }}</p>
             <form name="noteForm">
-                <input type="text" ng-model="interpolationStr" name="title" required minlength="2"/>
-                
-                <!-- <div ng-messages="noteForm.title.$error">
-                    <div ng-message="required">This field is required</div>
-                    <div ng-message="minlength">The value you entered is too short</div>
-                </div> -->
+                <input type="text" ng-model="title" name="title" required minlength="2"/>
             </form>
             <br>
         </div>
 
-        
-
         <div container></div>
-
 
 
         <!-- ANGULAR -->
         <script src="//code.angularjs.org/1.5.8/angular.min.js"></script>
+        <script src="//code.angularjs.org/1.5.8/angular-resource.js"></script>
         <script src="//code.angularjs.org/1.5.8/angular-messages.min.js"></script>
         <script src="//code.angularjs.org/1.5.8/angular-route.js"></script>
         <!-- APP -->
@@ -36,10 +29,10 @@
         <script src="app.ctrl.js"></script>
         <!-- DIRECTIVES -->
         <script src="directives/directives.js"></script>
-        <!-- SERVICES -->
-        <script src="services/http.svc.js"></script>
         <!-- CONTROLLERS -->
         <script src="controllers/container.ctrl.js"></script>
+        <!-- SERVICES -->
+        <script src="services/database.svc.js"></script>
         <!-- CLASSES -->
         <script src="classes/container.cls.js"></script>
     </body>
