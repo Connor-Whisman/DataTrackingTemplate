@@ -1,5 +1,5 @@
-app.directive('container', function() {
-    return {
-        templateUrl: 'templates/container.html',
-    };
-});
+// app.directive('container', function() {
+//     return {
+//         templateUrl: 'templates/container.html',
+//     };
+// });
