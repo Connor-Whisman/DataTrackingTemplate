@@ -10,9 +10,13 @@ app.factory('databaseSvc', [
                 length: '3'
             });
 
-        var getData = dataAPI.get(function() {
-            service.data = getData;
-        })
+        service.getData = 
+            dataAPI.get(function() {
+                return service.getData;
+                // return data;
+            })
+            
+        
         
 
 

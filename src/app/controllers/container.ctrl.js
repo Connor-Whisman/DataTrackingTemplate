@@ -4,7 +4,7 @@ app.controller('containerCtrl', [
     'databaseSvc',
     function($log, $scope, databaseSvc) {
         $scope.length = 1;
-        $scope.database = databaseSvc;
+        $scope.database = databaseSvc.getData;
 
         $log.info('Database Response: ', $scope.database);
     }
