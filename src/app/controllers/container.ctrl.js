@@ -6,17 +6,17 @@ app.controller('containerCtrl', [
     'databaseSvc',
     function($scope, $log, $routeParams, $location, databaseSvc) {
         $scope.length = Number($routeParams.length) || 1;
-        console.log($routeParams.length);
+        
         $scope.database = databaseSvc.getData($scope.length);
+        $scope.database.$promise.then(function() {
+            $scope.containers = $scope.database.containers;
+            console.log($scope.containers);
+        })
 
-        // $scope.$watch('$routeParams.length', function() {
-        //     $routeParams.length = $scope.length;
-        //     // $scope.length = $routeParams.length;
-        // });
+        
 
         $scope.getContainers = function() {
             $location.url('/'+ $scope.length);
-            $scope.database = databaseSvc.getData($scope.length);
         }
 
         
