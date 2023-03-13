@@ -5,7 +5,7 @@ app.controller('containerCtrl', [
     '$location',
     'databaseSvc',
     function($scope, $log, $routeParams, $location, databaseSvc) {
-        $scope.length = $routeParams.length || 1;
+        $scope.length = Number($routeParams.length) || 1;
         console.log($routeParams.length);
         $scope.database = databaseSvc.getData($scope.length);
 
