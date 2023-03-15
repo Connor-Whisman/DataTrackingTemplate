@@ -25,8 +25,9 @@ app.controller('containerCtrl', [
         }
 
         $scope.newContainer = function() {
+            var newTotal  = total + 1;
             var data = {
-                name: `Container ${total + 1}`,
+                name: `Container ${newTotal}`,
                 item: {
                     name: "Item X",
                     date: new Date(),
@@ -35,7 +36,8 @@ app.controller('containerCtrl', [
                 }
             }
             databaseSvc.saveData(data);
-            total += 1;
+            
+            $location.url('/'+ newTotal);
         }
 
         
