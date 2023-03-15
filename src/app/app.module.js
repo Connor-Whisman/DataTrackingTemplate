@@ -10,7 +10,7 @@ app.config(function($routeProvider) {
             templateUrl: 'templates/container.html',
             controller: 'containerCtrl'
         })
-        .when('/:length', {
+        .when('/:amount', {
             templateUrl: 'templates/container.html',
             controller: 'containerCtrl'
         })

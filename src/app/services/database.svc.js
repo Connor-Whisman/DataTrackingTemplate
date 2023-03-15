@@ -12,9 +12,9 @@ app.factory('databaseSvc', [
                 // post: {method: 'POST', headers: {'Access-Control-Allow-Origin': '*'}}
             });
 
-        service.getData = function(length) {
+        service.getData = function(amount) {
             return dataAPI.get(
-                {length: length}
+                {amount: amount}
             )
         }
 
