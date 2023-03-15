@@ -20,6 +20,9 @@
     margin-bottom: 10%;
     border: 2px solid black;
 }
+.add-record {
+    float: right;
+}
 .record {
     width: 85%;
     display: inline-block;
