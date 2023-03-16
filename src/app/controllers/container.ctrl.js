@@ -53,6 +53,10 @@ app.controller('containerCtrl', [
             console.log('records: ', containerRecords);
         }
 
+
+        // http://bguiz.github.io/js-standards/angularjs/single-responsibility/
+
+
         // -- ADD ABILITY TO CUSTOMIZE CONTAINER AND RECORD DATA THAT IS BEING ADDED. USE SOMETHING LIKE A MODAL WINDOW POPUP RATHER THAN JUST A BUTTON
         // -- ADD ABILITY TO CHANGE ITEM THAT IS IN CONTAINER !! 
 
