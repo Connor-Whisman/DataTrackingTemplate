@@ -48,8 +48,10 @@ app.controller('containerCtrl', [
         }
 
 
+        // RESOURCES
         // http://bguiz.github.io/js-standards/angularjs/single-responsibility/
-
+        // -- https://www.sitepoint.com/creating-crud-app-minutes-angulars-resource/
+        // -----------------------------------------------------------------------------------------
 
         // -- ADD ABILITY TO CUSTOMIZE CONTAINER AND RECORD DATA THAT IS BEING ADDED. USE SOMETHING LIKE A MODAL WINDOW POPUP RATHER THAN JUST A BUTTON
         // -- ADD ABILITY TO CHANGE ITEM THAT IS IN CONTAINER !! 
