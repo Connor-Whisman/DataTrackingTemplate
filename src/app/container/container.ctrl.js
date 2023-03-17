@@ -26,15 +26,9 @@ app.controller('containerCtrl', [
 
         $scope.newContainer = function() {
             var newTotal  = total + 1;
-            var data = {
-                name: `Container ${newTotal}`,
-                item: {
-                    name: "Item X",
-                    date: new Date(),
-                    description: "testing..",
-                    records: []
-                }
-            }
+            var name = `Container ${newTotal}`;
+            var data = new Container(name)
+            
             databaseSvc.saveData(data);
 
             $location.url('/'+ newTotal);
@@ -46,7 +40,7 @@ app.controller('containerCtrl', [
 
             var containerRecords = $scope.containers[index].item.records;
 
-            containerRecords.push({name: 'New Record', date: new Date(), data1: 3});
+            containerRecords.push(new Record());
 
 
             console.log('index: ', index);
@@ -61,13 +55,13 @@ app.controller('containerCtrl', [
         // -- ADD ABILITY TO CHANGE ITEM THAT IS IN CONTAINER !! 
 
         // -- IF ITEM IS REMOVED FROM CONTAINER, DATA IS SAVED. HOWEVER A NEW INSTANCE WILL BE CREATED WHEN SAME TYPE OF ITEM IS ADDED BACK
-        // -- CREATE CLASSES FOR EACH TYPE OF OBJECT?
+        
         // -- ADD LIST OF ITEMS TO CHOOSE FROM THAT CAN BE STORED IN CONTAINERS
 
         // -- SOME SORT OF 'VAULT' TO VIEW PAST DATA THAT NO LONGER LIVES IN THE CONTAINER
 
         // -- IMPLEMENT LOCALSTORAGE TO RETAIN DATA IF PAGE IS CLOSED. DECIDE WHEN API CALLS SHOULD BE MADE. FIRST ONE AT RUNTIME? HOW OFTEN SHOULD CHANGES BE SAVED?
-        // -- RESTRUCTURE APP DIRS BY FEATURE INSTEAD OF FILE TYPE. IMPLEMENT SEPERATE MODULES FOR DIFFERENT APP FEATURES
+        // -- IMPLEMENT SEPERATE MODULES FOR DIFFERENT APP FEATURES
 
         // OTHER SMALL FEATURES:
         // -- WAY TO RENAME CONTAINERS

@@ -7,12 +7,18 @@ var app = angular.module('app', [
 app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'templates/container.html',
+            templateUrl: 'container/container.html',
             controller: 'containerCtrl'
         })
         .when('/:amount', {
-            templateUrl: 'templates/container.html',
+            templateUrl: 'container/container.html',
             controller: 'containerCtrl'
         })
 
 })
+
+app.controller('appCtrl', [
+    '$rootScope',
+    function($scope) {
+        $scope.title = "Home";
+}]);
