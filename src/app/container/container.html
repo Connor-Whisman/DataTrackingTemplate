@@ -10,23 +10,6 @@
     </div>
 
     <div>
-        <ul>
-            <div ng-repeat="data in containers" class="container">
-                <h3 class="container-title">{{data.name}}</h3>
-                <div class="container-item">
-                    <button class="add-record" ng-click="addRecord(data)">Add Record</button>
-                    <h4>{{data.item.name}}</h4>
-                    <ul>
-                        <li ng-repeat="record in data.item.records">
-                            <div class="record">
-                                <h4 class="record-item">{{record.name}}</h4>
-                                <p class="record-date">{{record.date}}</p>
-                                <div ng-click="showData()">Expand data..</div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </ul>
+        <ng-include src="'item/item.html'"></ng-include>
     </div>
 </div>

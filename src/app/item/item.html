@@ -1,0 +1,12 @@
+<ul>
+    <div ng-repeat="data in containers" class="container">
+        <h3 class="container-title">{{data.name}}</h3>
+        <div class="container-item">
+            <button class="add-record" ng-click="addRecord(data)">Add Record</button>
+            <h4>{{data.item.name}}</h4>
+
+            <ng-include src="'record/record.html'"></ng-include>
+            
+        </div>
+    </div>
+</ul>
