@@ -1,7 +1,7 @@
 class Container {
-    constructor(name, item) {
+    constructor(name, itemObj) {
         this.name = name || '<Container X>';
-        this.item = item || {};
+        this.item = itemObj || {};
         this.dateCreated = new Date();
     }
 }

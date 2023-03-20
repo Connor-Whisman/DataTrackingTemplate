@@ -6,15 +6,13 @@ app.controller('containerCtrl', [
     '$location',
     'databaseSvc',
     function($rootScope, $scope, $log, $routeParams, $location, databaseSvc) {
-        $rootScope.containers = [];
-
         var total;
-        $scope.amount = Number($routeParams.amount) || 1;
-        $scope.database = databaseSvc.getData($scope.amount);
+        $scope.database = databaseSvc.getData();
 
         $scope.database.$promise.then(function() {
-            var containers = $scope.database.containers;
+            total = $scope.database.total;
 
+            var containers = $scope.database.containers;
             for (var i = 0; i < containers.length; i++) {
                 var container = containers[i];
                 if (container.item.name) {
@@ -23,37 +21,39 @@ app.controller('containerCtrl', [
                 else {
                     var item = {};
                 }
+
                 $rootScope.containers[i] = new Container(container.name, item);
             }
-
-            total = $scope.database.total;
-            console.log($rootScope.containers);
+            $log.info('Database Response: ', $scope.database);
         })
         
 
         $scope.getContainers = function() {
-            $location.url('/'+ $scope.amount);
+            $location.url('/');
         }
 
 
         $scope.newContainer = function() {
-            var newTotal  = total + 1;
-            var name = `Container ${newTotal}`;
+            total += 1;
+            var name = `Container ${total}`;
+            var container = new Container(name);
 
-            $rootScope.containers.push(new Container(name))
-            
+            $rootScope.containers.push(container);
             databaseSvc.saveData($rootScope.containers);
-            console.log($rootScope.containers);
+
+            $log.info('New Container Added: ', container);
         }
 
 
         $scope.deleteItem = function(container) {
             container.item = {};
             databaseSvc.saveData($rootScope.containers);
+            $log.info('Deleted Item From: ', container);
         }
         $scope.addItem = function(container) {
             container.item = new Item();
             databaseSvc.saveData($rootScope.containers);
+            $log.info('Added Item To: ', container);
         }
 
 
@@ -81,6 +81,6 @@ app.controller('containerCtrl', [
         // ---- Either have self related functions in their space or in their parents space?
 
         
-        $log.info('Database Response: ', $scope.database);
+        
     }
 ]);
