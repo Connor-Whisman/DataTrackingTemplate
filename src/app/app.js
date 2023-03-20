@@ -18,7 +18,7 @@ app.config(function($routeProvider) {
 })
 
 app.controller('appCtrl', [
-    '$rootScope',
+    '$scope',
     function($scope) {
         $scope.title = "Home";
 }]);

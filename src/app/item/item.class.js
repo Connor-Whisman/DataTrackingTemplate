@@ -1,11 +1,11 @@
 class Item {
-    constructor(name) {
-        this.name        = name || '<Default Item>';
-        this.dateCreated = new Date();
-        this.description = 'New Description';
-        this.records     = [];
+    constructor(name, date, records, description) {
+        this.name        = name         || '<Default Item>';
+        this.dateCreated = date         || new Date();
+        this.description = description  || 'New Description';
+        this.records     = records      || [];
     }
-    // set records(record) {
-    //     this.records.push(record);
-    // }
+    newRecord() {
+        this.records.push(new Record());
+    }
 }

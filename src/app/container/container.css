@@ -12,14 +12,7 @@
     text-align: center;
 
 }
-.container-item {
-    width: 80%;
-    height: 70%;
-    margin-left: 10%;
-    margin-right: 10%;
-    margin-bottom: 10%;
-    border: 2px solid black;
-}
+
 .add-record {
     float: right;
 }

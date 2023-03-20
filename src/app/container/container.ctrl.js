@@ -1,50 +1,59 @@
 app.controller('containerCtrl', [
+    '$rootScope',
     '$scope',
     '$log',
     '$routeParams',
     '$location',
     'databaseSvc',
-    function($scope, $log, $routeParams, $location, databaseSvc) {
+    function($rootScope, $scope, $log, $routeParams, $location, databaseSvc) {
+        $rootScope.containers = [];
+
         var total;
-
         $scope.amount = Number($routeParams.amount) || 1;
-        
         $scope.database = databaseSvc.getData($scope.amount);
-        
-        $scope.database.$promise.then(function() {
-            $scope.containers = $scope.database.containers;
-            console.log($scope.containers);
-            total = $scope.database.total;
-        })
-        
 
+        $scope.database.$promise.then(function() {
+            var containers = $scope.database.containers;
+
+            for (var i = 0; i < containers.length; i++) {
+                var container = containers[i];
+                if (container.item.name) {
+                    var item = new Item(container.item.name, container.item.date, container.item.records);
+                }
+                else {
+                    var item = {};
+                }
+                $rootScope.containers[i] = new Container(container.name, item);
+            }
+
+            total = $scope.database.total;
+            console.log($rootScope.containers);
+        })
         
 
         $scope.getContainers = function() {
             $location.url('/'+ $scope.amount);
         }
 
+
         $scope.newContainer = function() {
             var newTotal  = total + 1;
             var name = `Container ${newTotal}`;
-            var data = new Container(name)
-            
-            databaseSvc.saveData(data);
 
-            $location.url('/'+ newTotal);
+            $rootScope.containers.push(new Container(name))
+            
+            databaseSvc.saveData($rootScope.containers);
+            console.log($rootScope.containers);
         }
 
-        // STILL NEEDS TO BE HANDLED ON SERVER IN ORDER TO SAVE 
-        $scope.addRecord = function(container) {
-            var index = $scope.containers.indexOf(container);
 
-            var containerRecords = $scope.containers[index].item.records;
-
-            containerRecords.push(new Record());
-
-
-            console.log('index: ', index);
-            console.log('records: ', containerRecords);
+        $scope.deleteItem = function(container) {
+            container.item = {};
+            databaseSvc.saveData($rootScope.containers);
+        }
+        $scope.addItem = function(container) {
+            container.item = new Item();
+            databaseSvc.saveData($rootScope.containers);
         }
 
 
@@ -55,8 +64,6 @@ app.controller('containerCtrl', [
 
         // -- ADD ABILITY TO CUSTOMIZE CONTAINER AND RECORD DATA THAT IS BEING ADDED. USE SOMETHING LIKE A MODAL WINDOW POPUP RATHER THAN JUST A BUTTON
         // -- ADD ABILITY TO CHANGE ITEM THAT IS IN CONTAINER !! 
-
-        // -- IF ITEM IS REMOVED FROM CONTAINER, DATA IS SAVED. HOWEVER A NEW INSTANCE WILL BE CREATED WHEN SAME TYPE OF ITEM IS ADDED BACK
         
         // -- ADD LIST OF ITEMS TO CHOOSE FROM THAT CAN BE STORED IN CONTAINERS
 
@@ -68,6 +75,10 @@ app.controller('containerCtrl', [
         // OTHER SMALL FEATURES:
         // -- WAY TO RENAME CONTAINERS
 
+
+
+        // -- Should add/delete item be moved to item controller? 
+        // ---- Either have self related functions in their space or in their parents space?
 
         
         $log.info('Database Response: ', $scope.database);

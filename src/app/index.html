@@ -5,16 +5,17 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="container/container.css">
+        <link rel="stylesheet" href="item/item.css">
     </head>
     <body>
 
-        <div ng-controller="appCtrl">
+        <!-- <div ng-controller="appCtrl">
             <p>{{ title }}</p>
             <form name="noteForm">
                 <input type="text" ng-model="title" name="title" required minlength="2"/>
             </form>
             <br>
-        </div>
+        </div> -->
 
         <div ng-view></div>
 
@@ -33,6 +34,7 @@
         <script src="container/container.ctrl.js"></script>
         <!-- ITEM -->
         <script src="item/item.class.js"></script>
+        <script src="item/item.ctrl.js"></script>
         <!-- RECORD -->
         <script src="record/record.class.js"></script>
     </body>
