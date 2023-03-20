@@ -4,27 +4,17 @@ var app = angular.module('app', [
     'ngResource'
 ]);
 
+
 app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'container/container.html',
-            controller: 'containerCtrl'
+            templateUrl: 'container/container.html'
         })
-        // .when('/:amount', {
-        //     templateUrl: 'container/container.html',
-        //     controller: 'containerCtrl'
-        // })
-
 })
+
 
 app.controller('appCtrl', [
     '$rootScope',
-    '$log',
-    function($rootScope, $log) {
+    function($rootScope) {
         $rootScope.containers = [];
-        
-        $rootScope.logInfo = function(string, obj) {
-            var data = obj;
-            $log.info(string, obj);
-        }
 }]);

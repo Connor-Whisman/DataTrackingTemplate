@@ -1,0 +1,15 @@
+.add-record {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 12px;
+}
+.record {
+    width: 80%;
+    margin-left: 10%;
+    display: inline-block;
+}
+/* .record-date {
+    width: 20%;
+    float: right;
+} */

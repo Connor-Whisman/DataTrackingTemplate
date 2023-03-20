@@ -1,13 +1,8 @@
-<div>
+<div ng-controller="containerCtrl">
     <button type="submit" ng-click="newContainer()">NEW</button>
     <h4>
         CONTAINERS
     </h4>
-
-    <!-- <div>
-        <input type="number" ng-model="amount" id="amount" />
-        <button type="submit" ng-click="getContainers()">Get</button>
-    </div> -->
 
     <div>
         <ul>
@@ -17,6 +12,5 @@
                 <ng-include src="'item/item.html'"></ng-include>
             </div>
         </ul>
-        
     </div>
 </div>

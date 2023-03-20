@@ -6,7 +6,4 @@ class Record {
         this.data2       = 3;
         this.data3       = 3;
     }
-    // get record() {
-    //     return this;
-    // }
 }

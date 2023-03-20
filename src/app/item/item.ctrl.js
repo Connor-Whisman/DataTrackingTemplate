@@ -5,10 +5,16 @@ app.controller('itemCtrl', [
     'databaseSvc',
     function($rootScope, $scope, $log, databaseSvc) {
 
-        $scope.addRecord = function(itemObj) {
-            itemObj.newRecord();
+        $scope.deleteItem = function(container) {
+            container.item = {};
             databaseSvc.saveData($rootScope.containers);
-            $log.info('Added Record To: ', itemObj);
+            $log.info('Deleted Item From: ', container);
+        }
+
+        $scope.addItem = function(container) {
+            container.item = new Item();
+            databaseSvc.saveData($rootScope.containers);
+            $log.info('Added Item To: ', container);
         }
     }
 ]);

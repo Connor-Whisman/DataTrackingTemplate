@@ -12,20 +12,3 @@
     text-align: center;
 
 }
-
-.add-record {
-    float: right;
-}
-.record {
-    width: 85%;
-    display: inline-block;
-    border: 1px solid black;
-}
-.record.item {
-    width: 40%;
-    float: left;
-}
-.record-date {
-    width: 20%;
-    float: right;
-}

@@ -9,6 +9,7 @@ app.controller('containerCtrl', [
         var total;
         $scope.database = databaseSvc.getData();
 
+
         $scope.database.$promise.then(function() {
             total = $scope.database.total;
 
@@ -45,17 +46,6 @@ app.controller('containerCtrl', [
         }
 
 
-        $scope.deleteItem = function(container) {
-            container.item = {};
-            databaseSvc.saveData($rootScope.containers);
-            $log.info('Deleted Item From: ', container);
-        }
-        $scope.addItem = function(container) {
-            container.item = new Item();
-            databaseSvc.saveData($rootScope.containers);
-            $log.info('Added Item To: ', container);
-        }
-
 
         // RESOURCES
         // http://bguiz.github.io/js-standards/angularjs/single-responsibility/
@@ -74,13 +64,5 @@ app.controller('containerCtrl', [
 
         // OTHER SMALL FEATURES:
         // -- WAY TO RENAME CONTAINERS
-
-
-
-        // -- Should add/delete item be moved to item controller? 
-        // ---- Either have self related functions in their space or in their parents space?
-
-        
-        
     }
 ]);
