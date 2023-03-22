@@ -2,37 +2,13 @@ app.controller('containerCtrl', [
     '$rootScope',
     '$scope',
     '$log',
-    '$routeParams',
     '$location',
     'databaseSvc',
-    function($rootScope, $scope, $log, $routeParams, $location, databaseSvc) {
-        var total;
-        // $scope.database = databaseSvc.getData();
-
-
-        // $scope.database.$promise.then(function() {
-        //     total = $scope.database.total;
-
-        //     var containers = $scope.database.containers;
-        //     for (var i = 0; i < containers.length; i++) {
-        //         var container = containers[i];
-        //         if (container.item.name) {
-        //             var item = new Item(container.item.name, container.item.date, container.item.records);
-        //         }
-        //         else {
-        //             var item = {};
-        //         }
-
-        //         $rootScope.containers[i] = new Container(container.name, item);
-        //     }
-        //     $log.info('Database Response: ', $scope.database);
-        // })
-        
+    function($rootScope, $scope, $log, $location, databaseSvc) {
 
         $scope.getContainers = function() {
             $location.url('/');
         }
-
 
         $scope.newContainer = function(total) {
             $rootScope.total = total += 1;
@@ -44,7 +20,6 @@ app.controller('containerCtrl', [
 
             $log.info('New Container Added: ', container);
         }
-
 
 
         // RESOURCES
@@ -64,5 +39,8 @@ app.controller('containerCtrl', [
 
         // OTHER SMALL FEATURES:
         // -- WAY TO RENAME CONTAINERS
+
+
+        // ADD NEW ITEMS FUNCTIONALITY AND SAVE WITH DATABASESVC.SAVEDATA(): ALSO REMOVE THE NEED TO PASS ROOTSCOPE.CONTAINERS TO THE FUNCTION
     }
 ]);

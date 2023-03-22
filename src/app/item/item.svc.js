@@ -1,7 +1,9 @@
 app.factory('itemSvc', [
     'databaseSvc',
     function(databaseSvc) {
-        $scope.database = databaseSvc.getData();
+        const service = {};
+
+        
         return service;
     }
 ])

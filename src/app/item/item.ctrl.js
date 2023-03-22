@@ -9,6 +9,7 @@ app.controller('itemCtrl', [
             $log.log(value);
         }
 
+        
         $scope.deleteItem = function(container) {
             container.item = {};
             databaseSvc.saveData($rootScope.containers);
