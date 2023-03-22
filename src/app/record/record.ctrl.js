@@ -7,6 +7,7 @@ app.controller('recordCtrl', [
 
         $scope.addRecord = function(itemObj) {
             itemObj.newRecord();
+            
             databaseSvc.saveData($rootScope.containers);
             $log.info('Added Record To: ', itemObj);
         }
