@@ -15,11 +15,45 @@ app.config(function($routeProvider) {
 
 app.controller('appCtrl', [
     '$rootScope',
-    function($rootScope) {
+    'databaseSvc',
+    function($rootScope, databaseSvc) {
         $rootScope.containers   = [];
+        $rootScope.database     = databaseSvc.getDatabase();
+
+
+        $rootScope.database.$promise.then(function() {
+
+            // console.log($rootScope.database);
+            updateContainers();
+        })
+        
+
         $rootScope.itemOpts     = [
-            {name: 'Choice 1', dateCreated: new Date(), description: 'test 1', records: []},
-            {name: 'Choice 2', dateCreated: new Date(), description: 'test 2', records: []},
-            {name: 'Choice 3', dateCreated: new Date(), description: 'test 3', records: []},
+            new Item('Choice 1', new Date(), 'Description 1'),
+            new Item('Choice 2', new Date(), 'Description 2'),
+            new Item('Choice 3', new Date(), 'Description 3')
         ];
+
+
+        function updateContainers() {
+            $rootScope.total = $rootScope.database.total;
+            console.log($rootScope.total);
+            var containers = $rootScope.database.containers;
+            for (var i = 0; i < containers.length; i++) {
+                var container = containers[i];
+                if (container.item.name) {
+                    var item = new Item(container.item.name, container.item.date, container.item.records);
+                }
+                else {
+                    var item = {};
+                }
+
+                $rootScope.containers[i] = new Container(container.name, item);
+            }
+            $log.info('Database Response: ', $rootScope.database);
+        }
+
+        function updateItemList() {
+            return
+        }
 }]);

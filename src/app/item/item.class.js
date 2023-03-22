@@ -5,7 +5,7 @@ class Item {
         this.description = description  || 'New Description';
         this.records     = records      || [];
     }
-    newRecord() {
-        this.records.push(new Record());
+    newRecord(recordObj) {
+        this.records.push(recordObj || new Record());
     }
 }

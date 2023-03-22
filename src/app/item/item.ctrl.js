@@ -5,6 +5,10 @@ app.controller('itemCtrl', [
     'databaseSvc',
     function($rootScope, $scope, $log, databaseSvc) {
 
+        $scope.printValue = function(value) {
+            $log.log(value);
+        }
+
         $scope.deleteItem = function(container) {
             container.item = {};
             databaseSvc.saveData($rootScope.containers);

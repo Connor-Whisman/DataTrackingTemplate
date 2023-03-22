@@ -7,26 +7,26 @@ app.controller('containerCtrl', [
     'databaseSvc',
     function($rootScope, $scope, $log, $routeParams, $location, databaseSvc) {
         var total;
-        $scope.database = databaseSvc.getData();
+        // $scope.database = databaseSvc.getData();
 
 
-        $scope.database.$promise.then(function() {
-            total = $scope.database.total;
+        // $scope.database.$promise.then(function() {
+        //     total = $scope.database.total;
 
-            var containers = $scope.database.containers;
-            for (var i = 0; i < containers.length; i++) {
-                var container = containers[i];
-                if (container.item.name) {
-                    var item = new Item(container.item.name, container.item.date, container.item.records);
-                }
-                else {
-                    var item = {};
-                }
+        //     var containers = $scope.database.containers;
+        //     for (var i = 0; i < containers.length; i++) {
+        //         var container = containers[i];
+        //         if (container.item.name) {
+        //             var item = new Item(container.item.name, container.item.date, container.item.records);
+        //         }
+        //         else {
+        //             var item = {};
+        //         }
 
-                $rootScope.containers[i] = new Container(container.name, item);
-            }
-            $log.info('Database Response: ', $scope.database);
-        })
+        //         $rootScope.containers[i] = new Container(container.name, item);
+        //     }
+        //     $log.info('Database Response: ', $scope.database);
+        // })
         
 
         $scope.getContainers = function() {
@@ -34,8 +34,8 @@ app.controller('containerCtrl', [
         }
 
 
-        $scope.newContainer = function() {
-            total += 1;
+        $scope.newContainer = function(total) {
+            $rootScope.total = total += 1;
             var name = `Container ${total}`;
             var container = new Container(name);
 

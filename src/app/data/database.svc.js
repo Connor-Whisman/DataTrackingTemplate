@@ -1,8 +1,9 @@
 app.factory('databaseSvc', [
+    '$rootScope',
     '$resource',
     '$http',
     '$routeParams',
-    function($resource, $http, $routeParams) {
+    function($rootScope, $resource, $http, $routeParams) {
         const service = {};
         const URL   = 'http://localhost:8080/';
         
@@ -13,7 +14,7 @@ app.factory('databaseSvc', [
             });
 
 
-        service.getData = function() {
+        service.getDatabase = function() {
             return dataAPI.get()
         }
 
@@ -28,6 +29,14 @@ app.factory('databaseSvc', [
                 data: data
             });
         }
+
+        // service.getDatabase = 
+                // dataAPI.get().$promise.then(function(data) {
+                //     service.database = data;
+                //     // console.log($rootScope.database);
+                // })
+        // console.log(service.database);
+            
 
 
 
