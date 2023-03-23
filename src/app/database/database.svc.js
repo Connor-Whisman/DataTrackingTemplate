@@ -4,11 +4,27 @@ app.factory('databaseSvc', [
     '$http',
     '$log',
     function($rootScope, $resource, $http, $log) {
+
+        // --------------------- $ROOTSCOPE ----------------------
+        $rootScope.saveData = function(data) {
+            $http({
+                method: 'POST',
+                url: `${URL}post`,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: data
+            });
+        }
+
+        // --------------------- SERVICE ----------------------
         const service   = {};
         const URL       = 'http://localhost:8080/';
 
+
         service.containers   = [];
         service.itemOpts     = [];
+
 
 
 
@@ -21,16 +37,16 @@ app.factory('databaseSvc', [
             return service.dataAPI.get()
         }
 
-        service.saveData = function(data) {
-            $http({
-                method: 'POST',
-                url: `${URL}post`,
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                data: data
-            });
-        }
+        // $rootScope.saveData = function(data) {
+        //     $http({
+        //         method: 'POST',
+        //         url: `${URL}post`,
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         data: data
+        //     });
+        // }
 
     
 

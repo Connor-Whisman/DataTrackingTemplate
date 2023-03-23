@@ -13,7 +13,7 @@ app.controller('containerCtrl', [
             var container = new Container(name);
 
             $rootScope.containers.push(container);
-            databaseSvc.saveData($rootScope.containers);
+            $rootScope.saveData($rootScope.containers);
 
             $log.info('New Container Added: ', container);
         }
