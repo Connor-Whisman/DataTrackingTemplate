@@ -1,13 +1,17 @@
 <!-- 'Data' comes from parent scope (Container) -->
 <div ng-controller="itemCtrl">
     <div ng-hide="data.item.name" class="item">
-        <button ng-click="addItem(data)" class="add-item">Add Item</button>
+        <button ng-click="createItemOpt()" class="add-item">Add Item</button>
+
+        <div ng-if="addingItem">
+            <!-- <h3>Item being Added!!!</h3> -->
+        </div>
     </div>
 
     <div ng-if="data.item.name" class="item">
         <button ng-click="deleteItem(data)">Delete Item</button>
         <h4>{{data.item.name}}</h4>
 
-        <ng-include src="'record/templates/record.html'"></ng-include>
+        <record></record>
     </div>
 </div>

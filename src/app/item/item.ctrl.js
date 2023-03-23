@@ -6,10 +6,13 @@ app.controller('itemCtrl', [
     function($rootScope, $scope, $log, databaseSvc, $modal) {
 
         $rootScope.itemOpts = databaseSvc.itemOpts;
+        $scope.addingItem   = false;
+
+
 
 
         $scope.createItemOpt = function() {
-            return
+            $scope.addingItem = !$scope.addingItem;
         }
 
 
