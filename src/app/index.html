@@ -10,11 +10,17 @@
     </head>
     <body ng-controller="appCtrl">
 
+
         <ng-include src="'item/templates/itemList.html'"></ng-include>
 
-        <!-- <div ng-view></div> -->
-        <container></container>
 
+
+        <div ng-view></div>
+
+
+
+
+        
         <!-- ANGULAR -->
         <script src="//code.angularjs.org/1.5.8/angular.min.js"></script>
         <script src="//code.angularjs.org/1.5.8/angular-resource.js"></script>
@@ -23,7 +29,7 @@
         <!-- APP -->
         <script src="app.js"></script>
         <!-- DATA -->
-        <script src="data/database.svc.js"></script>
+        <script src="database/database.svc.js"></script>
         <!-- CONTAINER -->
         <script src="container/container.class.js"></script>
         <script src="container/container.ctrl.js"></script>

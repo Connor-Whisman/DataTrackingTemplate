@@ -4,20 +4,16 @@ var app = angular.module('app', [
     'ngResource'
 ]);
 
-
 app.config(function($routeProvider) {
     $routeProvider
         .when('/', {
-            templateUrl: 'container/templates/container.html'
+            templateUrl: 'pages/containerPage.html'
         })
 })
 
-
 app.controller('appCtrl', [
     '$rootScope',
-    '$log',
-    'databaseSvc',
-    function($rootScope, $log, databaseSvc) {
+    function($rootScope) {
         
     }
 ]);

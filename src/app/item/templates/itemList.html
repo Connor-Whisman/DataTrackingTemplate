@@ -1,5 +1,10 @@
 <div ng-controller="itemCtrl" style="float: right;">
-    <button ng-click="openModal()">New Item</button>
+    <button ng-click="createItemOpt()">New Item</button>
+
+    <div ng-if="addingItem">
+        <h3>Item being Added!!!</h3>
+    </div>
+    
     <ul>
         <li ng-repeat="item in itemOpts">{{item.name}} <button ng-click="printValue(item)">...</button></li>
     </ul>

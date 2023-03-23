@@ -1,11 +1,7 @@
 <!-- 'Data' comes from parent scope (Container) -->
 <div ng-controller="itemCtrl">
     <div ng-hide="data.item.name" class="item">
-        <button ng-click="createItemOpt()" class="add-item">Add Item</button>
-
-        <div ng-if="addingItem">
-            <!-- <h3>Item being Added!!!</h3> -->
-        </div>
+        <button ng-click="addItem(data)" class="add-item">Add Item</button>
     </div>
 
     <div ng-if="data.item.name" class="item">

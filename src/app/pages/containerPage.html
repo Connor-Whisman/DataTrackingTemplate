@@ -1,0 +1,14 @@
+<div ng-controller="containerCtrl">
+    <button type="submit" ng-click="newContainer(total)">NEW</button>
+    <h4>
+        CONTAINERS
+    </h4>
+
+    <div>
+        <ul>
+            <div ng-repeat="data in containers" class="container">
+                <container></container>
+            </div>
+        </ul>
+    </div>
+</div>
