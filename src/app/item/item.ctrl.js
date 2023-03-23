@@ -3,13 +3,22 @@ app.controller('itemCtrl', [
     '$scope',
     '$log',
     'databaseSvc',
-    function($rootScope, $scope, $log, databaseSvc) {
+    function($rootScope, $scope, $log, databaseSvc, $modal) {
+
+        $rootScope.itemOpts = databaseSvc.itemOpts;
+
+
+        $scope.createItemOpt = function() {
+            return
+        }
+
+
 
         $scope.printValue = function(value) {
             $log.log(value);
         }
 
-        
+
         $scope.deleteItem = function(container) {
             container.item = {};
             databaseSvc.saveData($rootScope.containers);

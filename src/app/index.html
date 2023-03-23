@@ -4,13 +4,13 @@
         <title>Learn Angular</title>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="index.css">
-        <link rel="stylesheet" href="container/container.css">
-        <link rel="stylesheet" href="item/item.css">
-        <link rel="stylesheet" href="record/record.css">
+        <link rel="stylesheet" href="container/templates/container.css">
+        <link rel="stylesheet" href="item/templates/item.css">
+        <link rel="stylesheet" href="record/templates/record.css">
     </head>
     <body ng-controller="appCtrl">
 
-        <ng-include src="'item/itemList.html'"></ng-include>
+        <ng-include src="'item/templates/itemList.html'"></ng-include>
 
         <div ng-view></div>
 

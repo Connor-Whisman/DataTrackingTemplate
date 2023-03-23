@@ -1,7 +1,5 @@
 <div ng-controller="itemCtrl" style="float: right;">
-    <!-- <select>
-        <option ng-repeat="item in itemOpts" value="item" ng-click="printValue(item)"="">{{item.name}}</option>
-    </select> -->
+    <button ng-click="openModal()">New Item</button>
     <ul>
         <li ng-repeat="item in itemOpts">{{item.name}} <button ng-click="printValue(item)">...</button></li>
     </ul>

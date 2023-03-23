@@ -6,9 +6,12 @@ app.controller('containerCtrl', [
     'databaseSvc',
     function($rootScope, $scope, $log, $location, databaseSvc) {
 
-        $scope.getContainers = function() {
-            $location.url('/');
-        }
+        // $scope.getContainers = function() {
+        //     $location.url('/');
+        // }
+        
+        $rootScope.containers = databaseSvc.containers;
+
 
         $scope.newContainer = function(total) {
             $rootScope.total = total += 1;

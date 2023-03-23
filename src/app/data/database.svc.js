@@ -7,8 +7,8 @@ app.factory('databaseSvc', [
         const service   = {};
         const URL       = 'http://localhost:8080/';
 
-        $rootScope.containers   = [];
-        $rootScope.itemOpts     = [];
+        service.containers   = [];
+        service.itemOpts     = [];
 
 
 
@@ -57,7 +57,7 @@ app.factory('databaseSvc', [
                 else {
                     var item = {};
                 }
-                $rootScope.containers[i] = new Container(container.name, item);
+                service.containers[i] = new Container(container.name, item);
             }
         }
 
@@ -65,11 +65,11 @@ app.factory('databaseSvc', [
             var itemList = service.database.itemList;
             for (var i = 0; i < itemList.length; i++) {
                 var item = itemList[i];
-                $rootScope.itemOpts[i] = new Item(item.name, item.dateCreated, item.description, item.records);
+                service.itemOpts[i] = new Item(item.name, item.dateCreated, item.description, item.records);
             }
         }
 
-        
+
 
         return service;
     }
