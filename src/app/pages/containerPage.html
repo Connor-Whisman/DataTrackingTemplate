@@ -1,4 +1,12 @@
 <div ng-controller="containerCtrl">
+
+    <div ng-controller="itemCtrl" style="float: right;">
+        <button ng-click="showNewOptModal()">Item Options</button>
+        <div ng-if="addingItemOpt">
+            <new-item-opt></new-item-opt>
+        </div>
+    </div>
+
     <button type="submit" ng-click="newContainer()">NEW</button>
     <h4>
         CONTAINERS

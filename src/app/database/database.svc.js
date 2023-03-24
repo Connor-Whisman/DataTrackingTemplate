@@ -47,7 +47,10 @@ app.factory('databaseSvc', [
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                data: $rootScope.containers
+                data: {
+                    containers: $rootScope.containers, 
+                    itemOpts: $rootScope.itemOpts
+                }
             });
         }
 
@@ -67,7 +70,7 @@ app.factory('databaseSvc', [
             }
         }
         function updateItemOpts() {
-            var itemList = service.database.itemList;
+            var itemList = service.database.itemOpts;
             for (var i = 0; i < itemList.length; i++) {
                 var item = itemList[i];
                 $rootScope.itemOpts[i] = new Item(item.name, item.dateCreated, item.records, item.description);

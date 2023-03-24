@@ -1,7 +1,13 @@
 <div class="modal">
     <div class="modal-content">
         <h2>Add A New Item Option</h2>
-        <button ng-click="modalsHide()">Close</button>
+        <button ng-click="createItemOpt()">New</button>
+        
+        <ul>
+            <li ng-repeat="item in itemOpts">{{item.name}} <button ng-click="deleteItemOpt(item)">Delete</button></li>
+        </ul>
+
+        <button ng-click="hideModals()">Close</button>
     </div>
     
 </div>

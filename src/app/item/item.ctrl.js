@@ -5,35 +5,48 @@ app.controller('itemCtrl', [
     'databaseSvc',
     function($rootScope, $scope, $log, databaseSvc) {
 
-        // ------ SHOW 'ADD ITEM TO CONTAINER' MODAL ------
+        // ------------------------- MODALS -------------------------
+        // --- SHOW 'ADD ITEM TO CONTAINER' MODAL ---
         $scope.addingItem = false;
-        $scope.addModalShow = function() {
+        $scope.showAddModal = function() {
             $scope.addingItem = true;            
         }
-        // ------ SHOW 'NEW ITEM TO OPTIONS' MODAL ------
+        // --- SHOW 'NEW ITEM TO OPTIONS' MODAL ---
         $scope.addingItemOpt = false
-        $scope.newOptModalShow = function() {
+        $scope.showNewOptModal = function() {
             $scope.addingItemOpt = true;
         }
-        // ------ CLOSE ALL MODALS ------
-        $scope.modalsHide = function() {
+        // --- HIDE ALL MODALS ---
+        $scope.hideModals = function() {
             $scope.addingItem = false;
             $scope.addingItemOpt = false;
         }        
 
 
         // ------ ADD / DELETE ITEMS IN CONTAINERS ------
+        $scope.addItem = function(containerObj, itemOpt) {
+            containerObj.item = itemOpt;
+            databaseSvc.saveData();
+            $scope.hideModals();
+            $log.info('Added Item: ', itemOpt, '\n', 'To Container: ', containerObj);
+        }
         $scope.deleteItem = function(containerObj) {
             containerObj.item = {};
             databaseSvc.saveData();
             $log.info('Deleted Item From: ', containerObj);
         }
-        $scope.addItem = function(containerObj, itemOpt) {
-            containerObj.item = itemOpt || new Item();
+
+
+        // ------ CREATE / DELETE ITEM OPTIONS ------
+        $scope.createItemOpt = function(itemOpt = undefined) {
+            $rootScope.itemOpts.push(itemOpt || new Item())
             databaseSvc.saveData();
-            console.log(itemOpt)
-            $scope.modalsHide();
-            $log.info('Added Item To: ', containerObj);
         }
+        $scope.deleteItemOpt = function(itemOpt) {
+            var index = $rootScope.itemOpts.indexOf(itemOpt);
+            $rootScope.itemOpts.splice(index, 1);
+            databaseSvc.saveData();
+        }
+        
     }
 ]);
