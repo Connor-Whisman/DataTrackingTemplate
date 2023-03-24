@@ -3,3 +3,9 @@ app.directive('item', function() {
         templateUrl: 'item/templates/item.html'
     }
 })
+
+app.directive('addItemToContainer', function() {
+    return {
+        templateUrl: 'item/templates/modals/addItem.html'
+    }
+})
