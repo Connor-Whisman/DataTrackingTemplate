@@ -1,13 +1,33 @@
 <div class="modal">
     <div class="modal-content">
-        <h2>Add A New Item Option</h2>
-        <button ng-click="createItemOpt()">New</button>
-        
-        <ul>
-            <li ng-repeat="item in itemOpts">{{item.name}} <button ng-click="deleteItemOpt(item)">Delete</button></li>
-        </ul>
+        <h2>Create New Item:</h2>
 
-        <button ng-click="hideModals()">Close</button>
+        <!-- <button ng-click="createItemOpt()">New</button> -->
+        
+        <!-- <ul>
+            <li ng-repeat="item in itemOpts">{{item.name}} <button ng-click="deleteItemOpt(item)">Delete</button></li>
+        </ul> -->
+
+        <form id="new-item-form">
+            <div>
+                <label class="form-label" for="item-name">Name:</label>
+                <input class="form-input" type="text" id="item-name" name="item-name" value=""/>
+            </div>
+            <div>
+                <label class="form-label" for="item-description">Description:</label>
+                <input class="form-input" type="text" id="item-description" name="item-description" value=""/>
+            </div>
+            
+            
+        </form>
+
+        <br>
+
+        <div class="form-btns">
+            <button ng-click="hideModals()">Close</button>
+            <button ng-click="hideModals()">Create</button>
+        </div>
+        
     </div>
     
 </div>

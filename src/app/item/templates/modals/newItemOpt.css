@@ -1,0 +1,16 @@
+#new-item-form {
+    display: inline;
+    width: 60%;
+}
+.form-btns {
+    width: 100%;
+}
+.form-label {
+    margin-left: 25%;
+    margin-right: 25%;
+    float: left;
+}
+.form-input {
+    margin-right: 20%;
+    float: right;
+}
