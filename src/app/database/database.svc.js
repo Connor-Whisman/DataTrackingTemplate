@@ -7,37 +7,17 @@ app.factory('databaseSvc', [
         const service   = {};
         const URL       = 'http://localhost:8080/';
 
-        service.containers   = [];
-        service.itemOpts     = [];
 
-
-
+        // ------ LOAD DATA FROM DATABASE / SERVER ------
         service.dataAPI = 
 			$resource(URL, {
                 get: {method: 'JSONP'},
             });
 
-        service.getDatabase = function() {
-            return service.dataAPI.get()
-        }
-
-        service.saveData = function(data) {
-            $http({
-                method: 'POST',
-                url: `${URL}post`,
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                data: data
-            });
-        }
-
-    
-
-        service.database = service.getDatabase();
+        service.database = service.dataAPI.get();
 
         service.database.$promise.then(function() {
-            $rootScope.total = service.database.total;
+            $rootScope.totalContainers = service.database.total;
 
             updateContainers();
             updateItemOpts();
@@ -45,8 +25,20 @@ app.factory('databaseSvc', [
             $log.info('Database Response: ', service.database);
         })
 
+        // ------ SAVE DATA BACK TO DATABASE / SERVER ------
+        service.saveData = function() {
+            $http({
+                method: 'POST',
+                url: `${URL}post`,
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: $rootScope.containers
+            });
+        }
 
 
+        // ------ LOAD ROOTSCOPE OBJECTS ------
         function updateContainers() {
             var containers = service.database.containers;
             for (var i = 0; i < containers.length; i++) {
@@ -57,18 +49,19 @@ app.factory('databaseSvc', [
                 else {
                     var item = {};
                 }
-                service.containers[i] = new Container(container.name, item);
+                $rootScope.containers[i] = new Container(container.name, item);
             }
         }
-
         function updateItemOpts() {
             var itemList = service.database.itemList;
             for (var i = 0; i < itemList.length; i++) {
                 var item = itemList[i];
-                service.itemOpts[i] = new Item(item.name, item.dateCreated, item.description, item.records);
+                $rootScope.itemOpts[i] = new Item(item.name, item.dateCreated, item.description, item.records);
             }
         }
 
+
+        // ------ RETURN ------
 
 
         return service;
