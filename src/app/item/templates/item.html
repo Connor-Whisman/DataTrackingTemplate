@@ -1,18 +1,19 @@
 <!-- 'Data' comes from parent scope (Container) -->
 <div ng-controller="itemCtrl">
 
+    <!-- ADD ITEM MODAL -->
     <div ng-if="addingItem">
         <add-item-to-container></add-item-to-container>
     </div>
 
 
+    <!-- SHOW 'ADD ITEM' IF CONTAINER IS EMPTY -->
     <div ng-hide="containerObj.item.name" class="item">
         <button ng-click="addItem(containerObj)" class="add-item">Add Item</button>
-        
-        
-
     </div>
 
+
+    <!-- SHOW ITEM AND OPTION TO DELETE IF EXISTS -->
     <div ng-if="containerObj.item.name" class="item">
         <button ng-click="deleteItem(containerObj)">Delete Item</button>
         <h4>{{containerObj.item.name}}</h4>

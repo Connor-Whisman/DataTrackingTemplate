@@ -11,3 +11,10 @@ app.directive('addItemToContainer', function() {
         templateUrl: 'item/templates/modals/addItem.html'
     }
 })
+
+// ------ NEW ITEM OPT MODAL ------
+app.directive('newItemOpt', function() {
+    return {
+        templateUrl: 'item/templates/modals/newItemOpt.html'
+    }
+})

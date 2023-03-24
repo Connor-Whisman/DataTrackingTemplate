@@ -12,6 +12,7 @@ app.controller('itemCtrl', [
         }
         $scope.closeModal = function() {
             $scope.addingItem = false;
+            $scope.addingItemOpt = false;
         }
 
 
