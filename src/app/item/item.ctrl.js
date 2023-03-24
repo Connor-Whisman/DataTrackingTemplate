@@ -5,27 +5,21 @@ app.controller('itemCtrl', [
     'databaseSvc',
     function($rootScope, $scope, $log, databaseSvc) {
 
-        // SHOW 'ADD ITEM TO CONTAINER' MODAL
+        // ------ SHOW 'ADD ITEM TO CONTAINER' MODAL ------
         $scope.addingItem = false;
-        $scope.openModal = function() {
+        $scope.openModalAdd = function() {
             $scope.addingItem = true;
         }
+        // ------ SHOW 'NEW ITEM TO OPTIONS' MODAL ------
+        $scope.addingItemOpt = false
+        $scope.openModalNew = function() {
+            $scope.addingItemOpt = true;
+        }
+        // ------ CLOSE ALL MODALS ------
         $scope.closeModal = function() {
             $scope.addingItem = false;
             $scope.addingItemOpt = false;
-        }
-
-
-        // ------ CREATE A NEW ITEM TO CHOOSE FROM WHEN ADDING TO CONTAINER ------
-        $scope.addingItemOpt = false
-        $scope.createItemOpt = function() {
-            $scope.addingItemOpt = !$scope.addingItemOpt;
-        }
-        $scope.printValue = function(value) {
-            $log.log(value);
-        }
-        // ------ CREATE 
-        
+        }        
 
 
         // ------ ADD / DELETE ITEMS IN CONTAINERS ------
@@ -34,15 +28,10 @@ app.controller('itemCtrl', [
             databaseSvc.saveData();
             $log.info('Deleted Item From: ', containerObj);
         }
-        $scope.addItem = function(containerObj) {
-            $scope.openModal();
-            containerObj.item = new Item();
+        $scope.addItem = function(containerObj, itemOpt) {
+            containerObj.item = itemOpt || new Item();
             databaseSvc.saveData();
             $log.info('Added Item To: ', containerObj);
         }
-        
-
-        
-        
     }
 ]);

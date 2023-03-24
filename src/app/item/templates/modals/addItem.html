@@ -1,6 +1,11 @@
 <div class="modal">
     <div class="modal-content">
         <h2>Add A New Item To Container</h2>
+
+        <div ng-repeat="opt in itemOpts track by $index">
+            <button ng-click="closeModal()">{{opt.name}}</button>
+        </div>
+
         <button ng-click="closeModal()">Close</button>
     </div>
     
