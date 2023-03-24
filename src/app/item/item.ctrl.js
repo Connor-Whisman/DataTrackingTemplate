@@ -39,7 +39,17 @@ app.controller('itemCtrl', [
 
         // ------ CREATE / DELETE ITEM OPTIONS ------
         $scope.createItemOpt = function(itemOpt = undefined) {
-            $rootScope.itemOpts.push(itemOpt || new Item())
+            if ($rootScope.itemOpts.length === 0) {
+                item = new Item("Item 1");
+            }
+            else {
+                var lastItem = $rootScope.itemOpts[$rootScope.itemOpts.length - 1];
+                console.log(lastItem)
+                var newIdx = parseFloat(lastItem.name.replace('Item ','')) + 1;
+                console.log(newIdx)
+                item = new Item("Item " + newIdx);
+            }
+            $rootScope.itemOpts.push(itemOpt || item)
             databaseSvc.saveData();
         }
         $scope.deleteItemOpt = function(itemOpt) {
