@@ -5,32 +5,40 @@ app.controller('itemCtrl', [
     'databaseSvc',
     function($rootScope, $scope, $log, databaseSvc) {
 
-        $rootScope.itemOpts = databaseSvc.itemOpts;
-        $scope.addingItem   = false;
+        // SHOW 'ADD ITEM TO CONTAINER' MODAL
+        $scope.addingItem = false;
+        $scope.openModal = function() {
+            $scope.addingItem = true;
+        }
+        $scope.closeModal = function() {
+            $scope.addingItem = false;
+            $scope.addingItemOpt = false;
+        }
 
 
+        // ------ CREATE A NEW ITEM TO CHOOSE FROM WHEN ADDING TO CONTAINER ------
+        $scope.addingItemOpt = false
+        $scope.createItemOpt = function() {
+            $scope.addingItemOpt = !$scope.addingItemOpt;
+        }
         $scope.printValue = function(value) {
             $log.log(value);
         }
+        // ------ CREATE 
+        
 
 
-        /// ------------------ CREATE / DELETE ITEMS FROM CONTAINER -------------------------
-        $scope.addItem = function(container) {
-            container.item = new Item();
-            $rootScope.saveData($rootScope.containers);
-            $log.info('Added Item To: ', container);
+        // ------ ADD / DELETE ITEMS IN CONTAINERS ------
+        $scope.deleteItem = function(containerObj) {
+            containerObj.item = {};
+            databaseSvc.saveData();
+            $log.info('Deleted Item From: ', containerObj);
         }
-        $scope.deleteItem = function(container) {
-            container.item = {};
-            $rootScope.saveData($rootScope.containers);
-            $log.info('Deleted Item From: ', container);
-        }
-        // ------ (ITEM CHOICES/OPTIONS WHEN ADDDING) ------
-        $scope.createItemOpt    = function() {
-            $scope.addingItem = !$scope.addingItem;
-        }
-        $scope.deleteItemOpt    = function() {
-            return
+        $scope.addItem = function(containerObj) {
+            $scope.openModal();
+            containerObj.item = new Item();
+            databaseSvc.saveData();
+            $log.info('Added Item To: ', containerObj);
         }
         
 

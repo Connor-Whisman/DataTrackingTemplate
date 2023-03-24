@@ -1,10 +1,14 @@
 app.controller('recordCtrl', [
-    '$rootScope',
     '$scope',
     '$log',
     'databaseSvc',
-    function($rootScope, $scope, $log, databaseSvc, recordSvc) {
+    function($scope, $log, databaseSvc) {
 
-        $scope.addRecord = recordSvc.addRecord();
+        // ------ ADD RECORD TO EXISTING ITEM ------
+        $scope.addRecord = function(itemObj) {
+            itemObj.newRecord();
+            databaseSvc.saveData();
+            $log.info('Added Record To: ', itemObj);
+        }
     }
 ]);

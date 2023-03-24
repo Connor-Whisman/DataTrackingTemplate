@@ -1,12 +1,12 @@
 <div ng-controller="containerCtrl">
-    <button type="submit" ng-click="newContainer(total)">NEW</button>
+    <button type="submit" ng-click="newContainer()">NEW</button>
     <h4>
         CONTAINERS
     </h4>
 
     <div>
         <ul>
-            <div ng-repeat="data in containers" class="container">
+            <div ng-repeat="containerObj in containers" class="container">
                 <container></container>
             </div>
         </ul>
