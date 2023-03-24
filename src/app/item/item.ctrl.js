@@ -7,16 +7,16 @@ app.controller('itemCtrl', [
 
         // ------ SHOW 'ADD ITEM TO CONTAINER' MODAL ------
         $scope.addingItem = false;
-        $scope.openModalAdd = function() {
-            $scope.addingItem = true;
+        $scope.addModalShow = function() {
+            $scope.addingItem = true;            
         }
         // ------ SHOW 'NEW ITEM TO OPTIONS' MODAL ------
         $scope.addingItemOpt = false
-        $scope.openModalNew = function() {
+        $scope.newOptModalShow = function() {
             $scope.addingItemOpt = true;
         }
         // ------ CLOSE ALL MODALS ------
-        $scope.closeModal = function() {
+        $scope.modalsHide = function() {
             $scope.addingItem = false;
             $scope.addingItemOpt = false;
         }        
@@ -31,6 +31,8 @@ app.controller('itemCtrl', [
         $scope.addItem = function(containerObj, itemOpt) {
             containerObj.item = itemOpt || new Item();
             databaseSvc.saveData();
+            console.log(itemOpt)
+            $scope.modalsHide();
             $log.info('Added Item To: ', containerObj);
         }
     }
