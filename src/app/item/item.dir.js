@@ -1,5 +1,5 @@
 // ------ ITEM DISPLAY ------
-app.directive('item', function() {
+app.directive('itemDiv', function() {
     return {
         templateUrl: 'item/templates/item.html'
     }
