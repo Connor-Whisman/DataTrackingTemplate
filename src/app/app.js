@@ -9,6 +9,9 @@ app.config(function($routeProvider) {
         .when('/', {
             templateUrl: 'pages/containerPage.html'
         })
+        .when('/automation', {
+            templateUrl: 'pages/automationPage.html'
+        })
 })
 
 app.controller('appCtrl', [
@@ -17,5 +20,8 @@ app.controller('appCtrl', [
         $rootScope.totalContainers  = 0;
         $rootScope.containers       = [];
         $rootScope.itemOpts         = [];
+
+        // $rootScope.automation       = {};
+        
     }
 ]);
