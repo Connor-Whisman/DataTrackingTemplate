@@ -61,7 +61,7 @@ app.factory('databaseSvc', [
             for (var i = 0; i < containers.length; i++) {
                 var container = containers[i];
                 if (container.item.name) {
-                    var item = new Item(container.item.name, container.item.date, container.item.records);
+                    var item = new Item(container.item.name, container.item.description, container.item.records, container.item.date);
                 }
                 else {
                     var item = {};
@@ -73,7 +73,7 @@ app.factory('databaseSvc', [
             var itemList = service.database.itemOpts;
             for (var i = 0; i < itemList.length; i++) {
                 var item = itemList[i];
-                $rootScope.itemOpts[i] = new Item(item.name, item.dateCreated, item.records, item.description);
+                $rootScope.itemOpts[i] = new Item(item.name, item.description, item.records, item.dateCreated);
             }
         }
 

@@ -1,21 +1,19 @@
-<div class="modal">
+<div class="modal" ng-controller="createItemCtrl">
     <div class="modal-content">
         <h2>Create New Item:</h2>
-
-        <!-- <button ng-click="createItemOpt()">New</button> -->
         
-        <!-- <ul>
+        <ul>
             <li ng-repeat="item in itemOpts">{{item.name}} <button ng-click="deleteItemOpt(item)">Delete</button></li>
-        </ul> -->
+        </ul>
 
         <form id="new-item-form">
             <div>
                 <label class="form-label" for="item-name">Name:</label>
-                <input class="form-input" type="text" id="item-name" name="item-name" value=""/>
+                <input class="form-input" type="text" id="item-name" name="item-name" ng-model="name" value=""/>
             </div>
             <div>
                 <label class="form-label" for="item-description">Description:</label>
-                <input class="form-input" type="text" id="item-description" name="item-description" value=""/>
+                <input class="form-input" type="text" id="item-description" name="item-description" ng-model="description" value=""/>
             </div>
             
             
@@ -25,7 +23,7 @@
 
         <div class="form-btns">
             <button ng-click="hideModals()">Close</button>
-            <button ng-click="hideModals()">Create</button>
+            <button ng-click="createItemOpt(); hideModals()">Create</button>
         </div>
         
     </div>

@@ -8,13 +8,13 @@ app.directive('itemDiv', function() {
 // ------ ADD ITEM MODAL ------
 app.directive('addItemToContainer', function() {
     return {
-        templateUrl: 'item/templates/modals/addItem.html'
+        templateUrl: 'item/templates/addItem.html'
     }
 })
 
 // ------ NEW ITEM OPT MODAL ------
-app.directive('newItemOpt', function() {
+app.directive('createItem', function() {
     return {
-        templateUrl: 'item/templates/modals/newItemOpt.html'
+        templateUrl: 'item/createItem/createItem.html'
     }
 })
