@@ -3,7 +3,7 @@
         <h2>Create New Item:</h2>
         
         <ul>
-            <li ng-repeat="item in itemOpts">{{item.name}} <button ng-click="deleteItemOpt(item)">Delete</button></li>
+            <li ng-repeat="item in itemOpts track by $index">{{item.name}} <button ng-click="deleteItemOpt(item)">Delete</button></li>
         </ul>
 
         <form id="new-item-form">

@@ -5,7 +5,7 @@ class Item {
         this.records     = records      || [];
         this.dateCreated = date         || new Date();
     }
-    newRecord(recordObj) {
-        this.records.push(recordObj || new Record());
-    }
+    // newRecord(recordObj) {
+    //     this.records.push(recordObj || new Record());
+    // }
 }

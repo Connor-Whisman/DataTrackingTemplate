@@ -25,10 +25,11 @@ app.controller('itemCtrl', [
 
         // ------ ADD / DELETE ITEMS IN CONTAINERS ------
         $scope.addItem = function(containerObj, itemOpt) {
-            containerObj.item = new Item(itemOpt.name, itemOpt.description, itemOpt.records, itemOpt.dateCreated);
+            var item = new Item(itemOpt.name, itemOpt.description, [], new Date());
+            containerObj.item = item;
             databaseSvc.saveData();
             $scope.hideModals();
-            $log.info('Added Item: ', itemOpt, '\n', 'To Container: ', containerObj);
+            $log.info('Added New Item: ', item, '\n', 'From Item: ', itemOpt, '\n', 'To Container: ', containerObj);
         }
         $scope.deleteItem = function(containerObj) {
             containerObj.item = {};

@@ -6,7 +6,8 @@ app.controller('recordCtrl', [
 
         // ------ ADD RECORD TO EXISTING ITEM ------
         $scope.addRecord = function(itemObj) {
-            itemObj.newRecord();
+            // itemObj.newRecord();
+            itemObj.records.push(new Record())
             databaseSvc.saveData();
             $log.info('Added Record To: ', itemObj);
         }
