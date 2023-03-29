@@ -1,14 +1,16 @@
 # Data Tracking Template
-- Generic app template for AngularJs with multiple use cases. Main purpose for tracking information over large periods of time.
+- Generic app template for AngularJs. Use cases for tracking information over large periods of time. Built with the intention of understanding AngularJs on a deeper level.
 
 # Goal:
-- Build a general app template that can be used in many different ways. Some other topics I've come up with include:
+- Learn AngularJs by building a general app template that can be used in many different ways. Some topics I've come up with include:
     - Kanban style note taking board
     - Inventory or objectives for a game
     - Workout tracker
     - Anything that involves objects containing a list or lists of more objects
 
 # Notes:
-- Still early in developement so I don't have the complete vision laid out for it yet, but I do have at least 1 real world scenario where I think I can put it to good use.
-- I want to keep it generalized because I think a lot of apps operate in a similar fashion and it would be nice to not have to reinvent the wheel everytime. I'm sure stuff like this already exist but I want to sharpen my JavaScript/AngularJs skills with something that could actually be used and bennefit others.
-- This project will remain open-source and anyone who would like to use it for their own purpose is more than welcome
+- App layout is starting to become a little sloppy, so I need to reorganize some of the structure after the bare functionality is working. (I'd like to have it working by 4/1 to have something to show for).
+- After that, start building an automated data tracking section.
+- Eventually style everything.
+
+- Overall I think this project was a big success, even if it were to never be as good as the vision was for it. I now understand how AngularJs uses MVA; what $scope means and what it does, how injection works, templates/directives, and just the overall functionality of a single page app. It has enabled me to be more productive and effective at work, allowing me to read and understand code on a deeper level.
