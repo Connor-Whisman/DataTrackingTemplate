@@ -1,4 +1,7 @@
-app.factory('databaseSvc', [
+angular.module('database', [
+    'ngResource'
+])
+.factory('databaseSvc', [
     '$rootScope',
     '$resource',
     '$http',

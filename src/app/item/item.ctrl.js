@@ -1,4 +1,4 @@
-app.controller('itemCtrl', [
+item.controller('itemCtrl', [
     '$rootScope',
     '$scope',
     '$log',

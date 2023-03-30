@@ -1,5 +1,5 @@
 // ------ CONTAINER DISPLAY
-app.directive('containerDiv', function() {
+container.directive('containerDiv', function() {
     return {
         templateUrl: 'container/templates/container.html'
     }

@@ -1,5 +1,5 @@
 // ------ RECORD DISPLAY ------
-app.directive('recordDiv', function() {
+record.directive('recordDiv', function() {
     return {
         templateUrl: 'record/templates/record.html'
     }

@@ -1,4 +1,4 @@
-app.controller('recordCtrl', [
+record.controller('recordCtrl', [
     '$scope',
     '$log',
     'databaseSvc',
