@@ -1,11 +1,15 @@
 <!-- 'Data' comes from parent scope (Container) -->
 <div ng-controller="recordCtrl">
-    <button class="add-record" ng-click="addRecord(containerObj.item)">Add Record</button>
+    <button class="add-record" ng-click="showAddModal()">Add Record</button>
+
+    <div ng-show="addingRecord">
+        <add-record></add-record>
+    </div>
 
     <ul>
         <li ng-repeat="record in containerObj.item.records track by $index">
             <div class="record">
-                <h4 class="record-item">{{record.name}}</h4>
+                <h4 class="record-item">{{record.name}}: {{record.data1}}</h4>
             </div>
         </li>
     </ul>

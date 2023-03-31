@@ -1,0 +1,27 @@
+<div class="modal">
+    <div class="modal-content">
+        <h2>Add A New Record</h2>
+
+        <form id="new-record-form">
+            <div>
+                <label class="form-label" for="record-date">Date:</label>
+                <input class="form-input" type="text" id="record-date" name="record-date" ng-model="recordDate" value="getDate()"/>
+            </div>
+            <div>
+                <label class="form-label" for="record-title">Title:</label>
+                <input class="form-input" type="text" id="record-title" name="record-title" ng-model="recordTitle" value=""/>
+            </div>
+            <div>
+                <label class="form-label" for="record-data">Data:</label>
+                <input class="form-input" type="text" id="record-data" name="record-data" ng-model="recordData" value=""/>
+            </div>
+            
+            
+        </form>
+
+        <br>
+        <button ng-click="hideModal()">Close</button>
+        <button ng-click="addRecord(containerObj.item); hideModal()">Create</button>
+    </div>
+    
+</div>

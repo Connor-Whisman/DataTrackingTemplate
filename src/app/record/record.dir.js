@@ -4,3 +4,9 @@ record.directive('recordDiv', function() {
         templateUrl: 'record/templates/record.html'
     }
 })
+
+record.directive('addRecord', function() {
+    return {
+        templateUrl: 'record/addRecord/addRecord.html'
+    }
+})
