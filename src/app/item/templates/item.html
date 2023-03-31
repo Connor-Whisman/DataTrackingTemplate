@@ -16,6 +16,7 @@
     <!-- SHOW ITEM AND OPTION TO DELETE IF EXISTS -->
     <div ng-show="containerObj.item.name" class="item">
         <button ng-click="deleteItem(containerObj)">Delete Item</button>
+        <button ng-click="archiveItem(containerObj)">Archive Item</button>
         <h4>{{containerObj.item.name}}</h4>
 
         <record-div></record-div>

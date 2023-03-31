@@ -13,6 +13,12 @@
     <body ng-controller="appCtrl">
 
 
+        <div class="navbar">
+            <a class="active" href="#/">Containers</a>
+            <a href="#/archive">Archives</a>
+        </div>
+
+
 
         <div ng-view></div>
 
@@ -27,8 +33,9 @@
         <script src="//code.angularjs.org/1.5.8/angular-route.js"></script>
         <!-- APP -->
         <script src="app.js"></script>
-        <!-- DATA -->
+        <!-- DATA / SERVICES-->
         <script src="database/database.svc.js"></script>
+        <script src="services/archive.svc.js"></script>
         <!-- CONTAINER -->
         <script src="container/container.js"></script>
         <script src="container/container.class.js"></script>

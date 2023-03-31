@@ -37,6 +37,12 @@ item.controller('itemCtrl', [
             $log.info('Deleted Item From: ', containerObj);
         }
 
+        $scope.archiveItem  = function(containerObj) {
+            containerObj.item.dateCreated = new Date();
+            $rootScope.archive.push(containerObj.item);
+            $scope.deleteItem(containerObj);
+        }
+
 
         // ADD NEW INSTANCES TO CONTAINER NOT WORKING
         

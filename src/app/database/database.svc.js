@@ -38,6 +38,7 @@ angular.module('database', [
 
             updateContainers();
             updateItemOpts();
+            updateArchive();
 
             $log.info('Database Response: ', service.database);
         })
@@ -52,7 +53,8 @@ angular.module('database', [
                 },
                 data: {
                     containers: $rootScope.containers, 
-                    itemOpts: $rootScope.itemOpts
+                    itemOpts: $rootScope.itemOpts,
+                    archive: $rootScope.archive
                 }
             });
         }
@@ -77,6 +79,13 @@ angular.module('database', [
             for (var i = 0; i < itemList.length; i++) {
                 var item = itemList[i];
                 $rootScope.itemOpts[i] = new Item(item.name, item.description, item.records, item.dateCreated);
+            }
+        }
+        function updateArchive() {
+            var archive = service.database.archive;
+            for (var i = 0; i < archive.length; i++) {
+                var item = archive[i];
+                $rootScope.archive[i] = new Item(item.name, item.description, item.records, item.dateCreated);
             }
         }
 
