@@ -1,0 +1,21 @@
+<div ng-controller="archiveCtrl">
+
+    <p>{{testStr}}</p>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Item</th>
+                <th>Date Archived</th>
+                <th>Data 1</th>
+                <th>Expand..</th>
+            </tr>
+            <tr ng-repeat="item in archive">
+                <td>{{item.name}}</td>
+                <td>{{item.dateCreated}}</td>
+                <td>{{item.data1}}</td>
+                <td><button>Click..</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
