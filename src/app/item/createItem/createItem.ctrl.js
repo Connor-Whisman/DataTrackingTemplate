@@ -1,4 +1,4 @@
-app.controller('createItemCtrl', [
+item.controller('createItemCtrl', [
     '$rootScope',
     '$scope',
     'databaseSvc',
