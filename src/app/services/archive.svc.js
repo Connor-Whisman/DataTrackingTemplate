@@ -1,15 +1,20 @@
-// archive.service('archiveSvc', [
-//     '$rootScope',
-//     'databaseSvc',
-//     function($rootScope, databaseSvc) {
+angular.module('archive')
+    .factory('archiveSvc', [
+        '$rootScope',
+        '$resource',
+        '$http',
+        'itemSvc',
+        function($rootScope, $resource, $http, itemSvc) {
+            var service = {};
 
-//         this.archiveItem = function() {
-//             // save data to archive obj
-//             // delete from normal rootscope containers object
-//         }
+            service.archiveItem  = function(containerObj) {
+                containerObj.item.dateCreated = new Date();
+                $rootScope.archive.push(containerObj.item);
+                itemSvc.deleteItem(containerObj);
+            }
 
-//         this.getArchives = function() {
-//             // return $rootScope.archives
-//         }
-//     }
-// ])
+            // ------ RETURN ------
+
+            return service;
+        }
+    ])

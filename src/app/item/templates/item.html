@@ -1,4 +1,4 @@
-<!-- 'Data' comes from parent scope (Container) -->
+<!-- 'containerObj' comes from parent scope (Container) -->
 <div ng-controller="itemCtrl">
 
     <!-- ADD ITEM MODAL -->
@@ -15,8 +15,8 @@
 
     <!-- SHOW ITEM AND OPTION TO DELETE IF EXISTS -->
     <div ng-show="containerObj.item.name" class="item">
-        <button ng-click="deleteItem(containerObj)">Delete Item</button>
-        <button ng-click="archiveItem(containerObj)">Archive Item</button>
+        <button ng-click="itemSvc.deleteItem(containerObj)">Delete Item</button>
+        <button ng-click="archiveSvc.archiveItem(containerObj)">Archive Item</button>
         <h4>{{containerObj.item.name}}</h4>
 
         <record-div></record-div>

@@ -3,7 +3,7 @@
         <h2>Add A New Item To Container</h2>
 
         <div ng-repeat="opt in itemOpts track by $index">
-            <button ng-click="addItem(containerObj, opt)">{{opt.name}}</button>
+            <button ng-click="itemSvc.addItem(containerObj, opt); hideModals()">{{opt.name}}</button>
         </div>
         <br>
         <button ng-click="hideModals()">Close</button>
