@@ -9,11 +9,11 @@
             </div>
             <div>
                 <label class="form-label" for="record-title">Title:</label>
-                <input class="form-input" type="text" id="record-title" name="record-title" ng-model="recordTitle" value=""/>
+                <input class="form-input" type="text" id="record-title" name="record-title" ng-model="recordSvc.recordTitle" value=""/>
             </div>
             <div>
                 <label class="form-label" for="record-data">Data:</label>
-                <input class="form-input" type="text" id="record-data" name="record-data" ng-model="recordData" value=""/>
+                <input class="form-input" type="text" id="record-data" name="record-data" ng-model="recordSvc.recordData" value=""/>
             </div>
             
             
@@ -21,7 +21,7 @@
 
         <br>
         <button ng-click="hideModal()">Close</button>
-        <button ng-click="addRecord(containerObj.item); hideModal()">Create</button>
+        <button ng-click="recordSvc.addRecord(containerObj.item); hideModal()">Create</button>
     </div>
     
 </div>
