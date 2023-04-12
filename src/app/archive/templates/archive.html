@@ -10,11 +10,11 @@
                 <th>Data 1</th>
                 <th>Expand..</th>
             </tr>
-            <tr ng-repeat="item in archive">
+            <tr ng-repeat="item in archiveSvc.archive track by $index">
                 <td>{{item.name}}</td>
                 <td>{{item.dateCreated}}</td>
                 <td>{{item.data1}}</td>
-                <td><button>Click..</button></td>
+                <td><button ng-click="archiveSvc.deleteArchiveItem($index)">Click..</button></td>
             </tr>
         </tbody>
     </table>

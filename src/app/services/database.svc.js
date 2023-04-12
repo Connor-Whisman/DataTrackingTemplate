@@ -9,16 +9,16 @@ angular.module('database', [
     function($rootScope, $resource, $http, $log) {
 
         // --------------------- $ROOTSCOPE ----------------------
-        $rootScope.saveData = function(data) {
-            $http({
-                method: 'POST',
-                url: `${URL}post`,
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                data: data
-            });
-        }
+        // $rootScope.saveData = function(data) {
+        //     $http({
+        //         method: 'POST',
+        //         url: `${URL}post`,
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         data: data
+        //     });
+        // }
 
         // --------------------- SERVICE ----------------------
         const service   = {};
@@ -38,7 +38,7 @@ angular.module('database', [
 
             updateContainers();
             updateItemOpts();
-            updateArchive();
+            // updateArchive();
 
             $log.info('Database Response: ', service.database);
         })
@@ -53,8 +53,8 @@ angular.module('database', [
                 },
                 data: {
                     containers: $rootScope.containers, 
-                    itemOpts: $rootScope.itemOpts,
-                    archive: $rootScope.archive
+                    itemOpts: $rootScope.itemOpts
+                    // archive: archiveSvc.archive
                 }
             });
         }
@@ -81,13 +81,13 @@ angular.module('database', [
                 $rootScope.itemOpts[i] = new Item(item.name, item.description, item.records, item.dateCreated);
             }
         }
-        function updateArchive() {
-            var archive = service.database.archive;
-            for (var i = 0; i < archive.length; i++) {
-                var item = archive[i];
-                $rootScope.archive[i] = new Item(item.name, item.description, item.records, item.dateCreated);
-            }
-        }
+        // function updateArchive() {
+        //     var archive = service.database.archive;
+        //     for (var i = 0; i < archive.length; i++) {
+        //         var item = archive[i];
+        //         $rootScope.archive[i] = new Item(item.name, item.description, item.records, item.dateCreated);
+        //     }
+        // }
 
 
         // ------ RETURN ------

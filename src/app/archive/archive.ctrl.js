@@ -1,5 +1,7 @@
 archive.controller('archiveCtrl', [
-    '$scope', 
-    function($scope) {
-        $scope.testStr = 'Works';
+    '$scope',
+    'archiveSvc',
+    function($scope, archiveSvc) {
+        $scope.archiveSvc = archiveSvc;
+        $scope.archiveSvc.getArchive();
 }]);
