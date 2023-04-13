@@ -44,7 +44,7 @@ angular.module('database', [
         })
 
         // ------ SAVE DATA BACK TO DATABASE / SERVER ------
-        service.saveData = function() {
+        service.saveData = function(containers, itemOpts, archive) {
             $http({
                 method: 'POST',
                 url: `${URL}post`,
@@ -52,9 +52,9 @@ angular.module('database', [
                     'Content-Type': 'application/json'
                 },
                 data: {
-                    containers: $rootScope.containers, 
-                    itemOpts: $rootScope.itemOpts
-                    // archive: archiveSvc.archive
+                    containers: containers, 
+                    itemOpts: itemOpts,
+                    archive: archive
                 }
             });
         }

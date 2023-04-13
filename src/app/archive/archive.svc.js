@@ -3,8 +3,9 @@ angular.module('archive')
         '$rootScope',
         '$resource',
         '$http',
+        "databaseSvc",
         'itemSvc',
-        function($rootScope, $resource, $http, itemSvc) {
+        function($rootScope, $resource, $http, databaseSvc, itemSvc) {
             var service = {};
             service.archive = [];
 
@@ -17,20 +18,22 @@ angular.module('archive')
                 containerObj.item.dateCreated = new Date();
                 service.archive.push(containerObj.item);
                 itemSvc.deleteItem(containerObj);
-                service.saveArchive();
+
+                // service.saveArchive();
+                databaseSvc.saveData($rootScope.containers, $rootScope.itemOpts, service.archive);
             }
 
 
                         
             // --------- RETRIEVE ARCHIVES ---------
             service.getArchive = function() {
-                service.dataAPI = 
+                var dataAPI = 
                     $resource(URL, {
                         get: {method: 'JSONP'},
                 });
-                service.database = service.dataAPI.get();
-                service.database.$promise.then(function() {
-                    service.archive = service.database.archive;
+                var database = dataAPI.get();
+                database.$promise.then(function() {
+                    service.archive = database.archive;
                     if (service.archive.length > 0) {
                         for (var i = 0; i < service.archive.length; i++) {
                             var item = service.archive[i];
@@ -44,7 +47,9 @@ angular.module('archive')
             // --------- DELETE ARCHIVE ---------
             service.deleteArchiveItem = function(index) {
                 service.archive.splice(index, 1);
-                service.saveArchive();
+
+                // service.saveArchive();
+                databaseSvc.saveData($rootScope.containers, $rootScope.itemOpts, service.archive);
             }
 
 
