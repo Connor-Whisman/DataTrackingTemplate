@@ -3,19 +3,41 @@
     <p>{{testStr}}</p>
 
     <table>
+          
+        <tr>
+            <th>Item</th>
+            <th>Date Archived</th>
+            <th>container</th>
+            <th>Delete</th>
+            <th>Expand</th>
+        </tr>
         <tbody>
-            <tr>
-                <th>Item</th>
-                <th>Date Archived</th>
-                <th>Data 1</th>
-                <th>Expand..</th>
-            </tr>
-            <tr ng-repeat="item in archiveSvc.archive track by $index">
-                <td>{{item.name}}</td>
-                <td>{{item.dateCreated}}</td>
-                <td>{{item.data1}}</td>
-                <td><button ng-click="archiveSvc.deleteArchiveItem($index)">Click..</button></td>
-            </tr>
+            <!-- <div ng-repeat="item in archiveSvc.archive track by $index"> -->
+                <tr ng-repeat="item in archiveSvc.archive track by $index">
+                    <td>{{item.name}}</td>
+                    <td>{{item.dateCreated}}</td>
+                    <td>{{item.container}}</td>
+                    <td>{{item.records}}</td>
+                    <td><button ng-click="archiveSvc.deleteArchiveItem($index)">Delete</button></td>
+                    <td><button ng-click="expand(archiveSvc.archive)">Expand</button></td>
+
+                    <td ng-repeat="record in item.records">
+                        <table>
+                            <tr>{{record.dateCreated}}</tr>
+                            <tr>{{record.name}}</tr>
+                            <!-- <tr>{{record.data1}}</tr>
+                            <tr>{{record.data2}}</tr>
+                            <tr>{{record.data3}}</tr> -->
+                        </table>
+                    </td>
+                </tr>
+                
+            <!-- </div> -->
+            
+            
         </tbody>
+        <!-- <table ng-if="expanded">
+            <tr ng-repeat="record in item.records track by $index">{{item.records[0]}}</tr>
+        </table> -->
     </table>
 </div>

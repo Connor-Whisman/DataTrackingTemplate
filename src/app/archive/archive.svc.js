@@ -15,12 +15,14 @@ angular.module('archive')
 
             // ------ ADD ITEM TO ARCHIVE ------
             service.archiveItem  = function(containerObj) {
-                containerObj.item.dateCreated = new Date();
-                service.archive.push(containerObj.item);
-                itemSvc.deleteItem(containerObj);
+                item = containerObj.item;
+                item.dateCreated   = new Date();
+                item.container     = containerObj.name;
+                service.archive.push(item);
 
-                // service.saveArchive();
-                databaseSvc.saveData($rootScope.containers, $rootScope.itemOpts, service.archive);
+                databaseSvc.saveData();
+                
+                itemSvc.deleteItem(containerObj);
             }
 
 
@@ -34,7 +36,7 @@ angular.module('archive')
                 var database = dataAPI.get();
                 database.$promise.then(function() {
                     service.archive = database.archive;
-                    if (service.archive.length > 0) {
+                    if (typeof service.archive !== 'undefined') {
                         for (var i = 0; i < service.archive.length; i++) {
                             var item = service.archive[i];
                             service.archive[i] = new Item(item.name, item.description, item.records, item.dateCreated);
