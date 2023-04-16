@@ -20,7 +20,7 @@ angular.module('archive')
                 item.container     = containerObj.name;
                 service.archive.push(item);
 
-                databaseSvc.saveData();
+                databaseSvc.saveData($rootScope.containers, $rootScope.itemOpts, service.archive);
                 
                 itemSvc.deleteItem(containerObj);
             }
