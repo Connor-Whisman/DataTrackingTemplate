@@ -8,18 +8,6 @@ angular.module('database', [
     '$log',
     function($rootScope, $resource, $http, $log) {
 
-        // --------------------- $ROOTSCOPE ----------------------
-        // $rootScope.saveData = function(data) {
-        //     $http({
-        //         method: 'POST',
-        //         url: `${URL}post`,
-        //         headers: {
-        //             'Content-Type': 'application/json'
-        //         },
-        //         data: data
-        //     });
-        // }
-
         // --------------------- SERVICE ----------------------
         const service   = {};
         const URL       = 'http://localhost:8080/';
@@ -38,7 +26,6 @@ angular.module('database', [
 
             updateContainers();
             updateItemOpts();
-            // updateArchive();
 
             $log.info('Database Response: ', service.database);
         })
@@ -47,7 +34,7 @@ angular.module('database', [
         service.saveData = function(containers, itemOpts, archive) {
             $http({
                 method: 'POST',
-                url: `${URL}post`,
+                url: `${URL}saveAll`,
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -60,13 +47,14 @@ angular.module('database', [
         }
 
 
+
         // ------ LOAD ROOTSCOPE OBJECTS ------
         function updateContainers() {
             var containers = service.database.containers;
             for (var i = 0; i < containers.length; i++) {
                 var container = containers[i];
                 if (container.item.name) {
-                    var item = new Item(container.item.name, container.item.description, container.item.records, container.item.date);
+                    var item = new Item(container.item.name, container.item.description, container.item.records, container.item.date, container.name);
                 }
                 else {
                     var item = {};
@@ -81,13 +69,6 @@ angular.module('database', [
                 $rootScope.itemOpts[i] = new Item(item.name, item.description, item.records, item.dateCreated);
             }
         }
-        // function updateArchive() {
-        //     var archive = service.database.archive;
-        //     for (var i = 0; i < archive.length; i++) {
-        //         var item = archive[i];
-        //         $rootScope.archive[i] = new Item(item.name, item.description, item.records, item.dateCreated);
-        //     }
-        // }
 
 
         // ------ RETURN ------

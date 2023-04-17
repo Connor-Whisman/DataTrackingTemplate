@@ -1,8 +1,8 @@
 item.controller('createItemCtrl', [
     '$rootScope',
     '$scope',
-    'databaseSvc',
-    function($rootScope, $scope, databaseSvc) {
+    'itemSvc',
+    function($rootScope, $scope, itemSvc) {
 
         $scope.name = '';
         $scope.description = '';
@@ -16,16 +16,12 @@ item.controller('createItemCtrl', [
                 var item = new Item($scope.name, ($scope.description || '<No Description>'));
             }
             $rootScope.itemOpts.push(item);
-            databaseSvc.saveData();
+            itemSvc.saveItemOpts();
         }
         $scope.deleteItemOpt = function(itemOpt) {
             var index = $rootScope.itemOpts.indexOf(itemOpt);
             $rootScope.itemOpts.splice(index, 1);
-            databaseSvc.saveData();
+            itemSvc.saveItemOpts();
         }
-
-
-        
-        
     }
 ]);

@@ -3,11 +3,11 @@ angular.module('archive')
         '$rootScope',
         '$resource',
         '$http',
-        "databaseSvc",
         'itemSvc',
-        function($rootScope, $resource, $http, databaseSvc, itemSvc) {
+        function($rootScope, $resource, $http, itemSvc) {
             var service = {};
             service.archive = [];
+
 
             const URL       = 'http://localhost:8080/';
 
@@ -15,13 +15,12 @@ angular.module('archive')
 
             // ------ ADD ITEM TO ARCHIVE ------
             service.archiveItem  = function(containerObj) {
-                item = containerObj.item;
-                item.dateCreated   = new Date();
-                item.container     = containerObj.name;
+                item                = containerObj.item;
+                item.dateCreated    = new Date();
+                item.container      = containerObj.name;
                 service.archive.push(item);
 
-                databaseSvc.saveData($rootScope.containers, $rootScope.itemOpts, service.archive);
-                
+                service.saveArchive();
                 itemSvc.deleteItem(containerObj);
             }
 
@@ -39,7 +38,7 @@ angular.module('archive')
                     if (typeof service.archive !== 'undefined') {
                         for (var i = 0; i < service.archive.length; i++) {
                             var item = service.archive[i];
-                            service.archive[i] = new Item(item.name, item.description, item.records, item.dateCreated);
+                            service.archive[i] = new Item(item.name, item.description, item.records, item.dateCreated, item.container);
                         }
                     }
             })}
@@ -50,8 +49,7 @@ angular.module('archive')
             service.deleteArchiveItem = function(index) {
                 service.archive.splice(index, 1);
 
-                // service.saveArchive();
-                databaseSvc.saveData($rootScope.containers, $rootScope.itemOpts, service.archive);
+                service.saveArchive();
             }
 
 
@@ -60,13 +58,11 @@ angular.module('archive')
             service.saveArchive = function() {
                 $http({
                     method: 'POST',
-                    url: `${URL}post`,
+                    url: `${URL}saveArchive`,
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     data: {
-                        containers: $rootScope.containers, 
-                        itemOpts: $rootScope.itemOpts,
                         archive: service.archive
                     }
                 });

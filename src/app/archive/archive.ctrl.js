@@ -4,11 +4,13 @@ archive.controller('archiveCtrl', [
     function($scope, archiveSvc) {
         $scope.archiveSvc = archiveSvc;
 
-        $scope.expanded = true;
-
-        $scope.expand = function(log){
-            console.log(log);
-        }
-
         $scope.archiveSvc.getArchive();
+        
+
+        $scope.archiveSvc.archive.forEach(function(item){
+            item.expanded=false;
+        })
+        $scope.expand = function(item){
+            item.expanded = !item.expanded;
+        }
 }]);
