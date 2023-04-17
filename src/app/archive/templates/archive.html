@@ -16,10 +16,11 @@
                 <td>{{item.container}}</td>
                 <td>{{item.records}}</td>
                 <td><button ng-click="archiveSvc.deleteArchiveItem($index)">Delete</button></td>
-                <td><button ng-click="expand(item)">Expand</button></td>
+                <td ng-show="item.records.length > 0"><button ng-click="expand(item)">Expand</button></td>
+                <td ng-hide="item.records.length > 0">No Records</td>
             </tr>
-            <tr></tr>
-            <tr ng-repeat-end ng-if="item.expanded" ng-repeat="record in item.records">
+            
+            <tr ng-repeat-end ng-show="item.expanded" ng-repeat="record in item.records">
                 <td>{{record.dateCreated}}</td>
                 <td>{{record.name}}</td>
                 <td>{{record.data1}}</td>
