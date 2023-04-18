@@ -6,6 +6,8 @@ item.factory('itemSvc', [
     function($rootScope, $http, $log, containerSvc) {
         var service = {};
 
+        service.itemOpts = [];
+
         const URL       = 'http://localhost:8080/';
 
 
@@ -31,7 +33,7 @@ item.factory('itemSvc', [
                     'Content-Type': 'application/json'
                 },
                 data: {
-                    itemOpts: $rootScope.itemOpts
+                    itemOpts: service.itemOpts
                 }
             });
         }

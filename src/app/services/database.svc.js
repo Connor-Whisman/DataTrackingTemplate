@@ -6,7 +6,9 @@ angular.module('database', [
     '$resource',
     '$http',
     '$log',
-    function($rootScope, $resource, $http, $log) {
+    'containerSvc',
+    'itemSvc',
+    function($rootScope, $resource, $http, $log, containerSvc, itemSvc) {
 
         // --------------------- SERVICE ----------------------
         const service   = {};
@@ -22,7 +24,7 @@ angular.module('database', [
         service.database = service.dataAPI.get();
 
         service.database.$promise.then(function() {
-            $rootScope.totalContainers = service.database.total;
+            containerSvc.totalContainers = service.database.total;
 
             updateContainers();
             updateItemOpts();
@@ -59,14 +61,14 @@ angular.module('database', [
                 else {
                     var item = {};
                 }
-                $rootScope.containers[i] = new Container(container.name, item);
+                containerSvc.containers[i] = new Container(container.name, item);
             }
         }
         function updateItemOpts() {
             var itemList = service.database.itemOpts;
             for (var i = 0; i < itemList.length; i++) {
                 var item = itemList[i];
-                $rootScope.itemOpts[i] = new Item(item.name, item.description, item.records, item.dateCreated);
+                itemSvc.itemOpts[i] = new Item(item.name, item.description, item.records, item.dateCreated);
             }
         }
 

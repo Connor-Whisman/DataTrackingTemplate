@@ -23,10 +23,6 @@ app.config(function($routeProvider) {
 app.controller('appCtrl', [
     '$rootScope',
     function($rootScope) {
-        // $rootScope.archive          = [];
-        $rootScope.totalContainers  = 0;
-        $rootScope.containers       = [];
-        $rootScope.itemOpts         = [];
     }
 ]);
 
