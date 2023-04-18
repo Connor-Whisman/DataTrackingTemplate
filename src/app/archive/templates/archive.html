@@ -16,7 +16,8 @@
                 <td>{{item.container}}</td>
                 <td>{{item.records}}</td>
                 <td><button ng-click="archiveSvc.deleteArchiveItem($index)">Delete</button></td>
-                <td ng-show="item.records.length > 0"><button ng-click="expand(item)">Expand</button></td>
+                <td ng-show="item.records.length > 0 && !item.expanded"><button ng-click="expand(item)">Expand</button></td>
+                <td ng-show="item.records.length > 0 && item.expanded"><button ng-click="expand(item)">Hide</button></td>
                 <td ng-hide="item.records.length > 0">No Records</td>
             </tr>
             
