@@ -18,6 +18,7 @@ angular.module('archive')
                 item                = containerObj.item;
                 item.dateCreated    = new Date();
                 item.container      = containerObj.name;
+                item.index          = service.archive[service.archive.length - 1].index + 1;
                 service.archive.push(item);
 
                 service.saveArchive();
@@ -38,7 +39,7 @@ angular.module('archive')
                     if (typeof service.archive !== 'undefined') {
                         for (var i = 0; i < service.archive.length; i++) {
                             var item = service.archive[i];
-                            service.archive[i] = new Item(item.name, item.description, item.records, item.dateCreated, item.container);
+                            service.archive[i] = new Item(item.name, item.description, item.records, item.dateCreated, item.container, item.index);
                         }
                     }
             })}
@@ -48,7 +49,6 @@ angular.module('archive')
             // --------- DELETE ARCHIVE ---------
             service.deleteArchiveItem = function(index) {
                 service.archive.splice(index, 1);
-
                 service.saveArchive();
             }
 

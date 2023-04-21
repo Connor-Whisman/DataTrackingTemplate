@@ -1,0 +1,61 @@
+.archive-table {
+    width: 90vmax;
+    margin-left: 5vmax;
+    border-collapse: collapse;
+}
+
+.archive-row-header {
+    height: 8vmin;
+    border: 3px solid black;
+}
+
+.archive-row {
+    height: 6vmin;
+    border: 2px solid black;
+}
+
+.archive-cell-header {
+    text-align: center;
+    border: 3px solid black;
+    font-size: 2.5vmin;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.archive-cell {
+    text-align: center;
+    border: 2px solid black;
+    font-size: 2vmin;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+
+.archive-record-table {
+    width: 90%;
+    margin-left: 5%;
+    border-collapse: collapse;
+}
+
+.archive-record-row-header {
+    height: 5vmin;
+}
+
+.archive-record-row {
+    height: 4vmin;
+}
+
+.archive-record-cell-header {
+    width: 20%;
+    text-align: center;
+    border: 2px solid rgb(55, 116, 160);
+    font-size: 2.5vmin;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.archive-record-cell {
+    width: 20%;
+    text-align: center;
+    border: 2px solid rgb(55, 116, 160);
+    font-size: 2vmin;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

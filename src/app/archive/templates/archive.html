@@ -1,45 +1,46 @@
 <div ng-controller="archiveCtrl">
 
 
-    <table>
-        <tr>
-            <th>Item</th>
-            <th>Date Archived</th>
-            <th>container</th>
-            <th>Delete</th>
-            <th>Expand</th>
+    <table class="archive-table">
+        <tr class="archive-row-header">
+            <th class="archive-cell-header">Index</th>
+            <th class="archive-cell-header">Item</th>
+            <th class="archive-cell-header">Date Archived</th>
+            <th class="archive-cell-header">Container</th>
+            <th class="archive-cell-header">Delete</th>
+            <th class="archive-cell-header">Expand</th>
         </tr>
         <tbody>
-            <tr ng-repeat-start="item in archiveSvc.archive track by $index">
-                <td>{{item.name}}</td>
-                <td>{{item.dateCreated}}</td>
-                <td>{{item.container}}</td>
-                <td>{{item.records}}</td>
-                <td><button ng-click="archiveSvc.deleteArchiveItem($index)">Delete</button></td>
-                <td ng-show="item.records.length > 0 && !item.expanded"><button ng-click="expand(item)">Expand</button></td>
-                <td ng-show="item.records.length > 0 && item.expanded"><button ng-click="expand(item)">Hide</button></td>
-                <td ng-hide="item.records.length > 0">No Records</td>
+            <tr class="archive-row" ng-repeat-start="item in archiveSvc.archive track by $index">
+                <td class="archive-cell">{{item.index}}</td>
+                <td class="archive-cell">{{item.name}}</td>
+                <td class="archive-cell">{{item.dateCreated}}</td>
+                <td class="archive-cell">{{item.container}}</td>
+                <td class="archive-cell"><button ng-click="archiveSvc.deleteArchiveItem($index)">Delete</button></td>
+                <td class="archive-cell" ng-show="item.records.length > 0 && !item.expanded"><button ng-click="expand(item)">Expand</button></td>
+                <td class="archive-cell" ng-show="item.records.length > 0 && item.expanded"><button ng-click="expand(item)">Hide</button></td>
+                <td class="archive-cell" ng-show="item.records.length == 0">No Records</td>
             </tr>
             
             <tr ng-repeat-end ng-show="item.expanded">
-                <td>
-                    <table>
-                        <tr>
-                            <th>Date</th>
-                            <th>Name</th>
-                            <th>Data 1</th>
-                            <th>Data 2</th>
-                            <th>Data 3</th>
+                <td colspan="6">
+                    <table class="archive-record-table">
+                        <tr class="archive-record-row-header">
+                            <th class="archive-record-cell-header">Date</th>
+                            <th class="archive-record-cell-header">Name</th>
+                            <th class="archive-record-cell-header">Data 1</th>
+                            <th class="archive-record-cell-header">Data 2</th>
+                            <th class="archive-record-cell-header">Data 3</th>
                         </tr>
-                        <tbody>
-                            <tr ng-repeat="record in item.records">
-                                <td>{{record.dateCreated}}</td>
-                                <td>{{record.name}}</td>
-                                <td>{{record.data1}}</td>
-                                <td>{{record.data2}}</td>
-                                <td>{{record.data3}}</td>
+                        <!-- <tbody> -->
+                            <tr class="archive-record-row" ng-repeat="record in item.records">
+                                <td class="archive-record-cell">{{record.dateCreated}}</td>
+                                <td class="archive-record-cell">{{record.name}}</td>
+                                <td class="archive-record-cell">{{record.data1}}</td>
+                                <td class="archive-record-cell">{{record.data2}}</td>
+                                <td class="archive-record-cell">{{record.data3}}</td>
                             </tr>
-                        </tbody>
+                        <!-- </tbody> -->
                     </table>
                 </td>
             </tr>
